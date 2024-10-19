@@ -1,16 +1,13 @@
 .page {
-  background-color: #000;
-  color: #fff;
   box-sizing: border-box;
-  margin: 0;
-  padding: 0;
   background-image: url("../../assets/backgroundImage.png");
   background-size: cover;
   background-position: center;
+  background-repeat: no-repeat;
 }
 
 .page__content {
   max-width: 1440px;
   margin: 0 auto;
-  padding: 30px 104px 26px;
+  padding: 0 104px 26px;
 }

@@ -1,15 +1,16 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import Logo from "../../assets/NewsExplorer.svg";
+import Navigation from "../Navigation/Navigation";
 import "./Header.css";
+
 function Header() {
   return (
     <header className="header">
-      <img src={Logo} alt="NewsExplorer" className="header__logo" />
-      <div className="header__user-container">
-        {/* Add Navigation Component here */}
-        <button className="header__home-button">Home</button>
-        <button className="header__button">Sign in</button>
-      </div>
+      <Link to="/">
+        <img src={Logo} alt="NewsExplorer" className="header__logo" />
+      </Link>
+      <Navigation />
     </header>
   );
 }

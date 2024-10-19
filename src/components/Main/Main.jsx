@@ -1,5 +1,7 @@
 import React from "react";
 import "./Main.css";
+import SearchForm from "../SearchForm/SearchForm";
+
 function Main() {
   return (
     <main className="main">
@@ -8,6 +10,7 @@ function Main() {
         Find the latest news on any topic and save them in your personal
         account.
       </p>
+      <SearchForm />
     </main>
   );
 }
