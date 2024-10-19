@@ -19,6 +19,7 @@
 }
 
 .header__logo {
+  font-family: "Roboto Slab", Arial, sans-serif;
   width: 200px;
   height: 24px;
   cursor: pointer;
