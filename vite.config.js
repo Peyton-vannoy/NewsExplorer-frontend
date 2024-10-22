@@ -7,4 +7,6 @@ export default defineConfig({
   server: {
     historyApiFallback: true,
   },
+  assetsInclude: ["**/*.woff", "**/*.woff2"],
+  publicDir: "public",
 });
