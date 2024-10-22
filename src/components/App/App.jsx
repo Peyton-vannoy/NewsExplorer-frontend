@@ -2,6 +2,7 @@ import "./App.css";
 import Header from "../Header/Header";
 import Main from "../Main/Main";
 import NotFound from "../NotFound/NotFound";
+import Footer from "../Footer/Footer";
 import About from "../About/About";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
@@ -19,6 +20,7 @@ function App() {
         </div>
         {/* <NotFound /> */}
         <About />
+        <Footer />
       </div>
     </BrowserRouter>
   );

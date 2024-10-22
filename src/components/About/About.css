@@ -18,7 +18,6 @@
 
 .about__text {
   max-width: 600px;
-  margin-top: 51px;
 }
 
 .about__title {
@@ -26,7 +25,9 @@
   font-size: 40px;
   line-height: 46px;
   font-weight: 400;
-  margin: 0 0 24px;
+  margin: 51px 0 24px;
+  height: 46px;
+  width: 600px;
 }
 
 .about__paragraph {
@@ -34,4 +35,5 @@
   font-size: 18px;
   line-height: 24px;
   margin: 0;
+  height: 120px;
 }
