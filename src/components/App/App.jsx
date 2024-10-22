@@ -9,11 +9,15 @@ function App() {
     <BrowserRouter>
       <div className="page">
         <div className="page__content">
-          <Header />
-          <Routes>
-            <Route path="/" element={<Main />} />
-            <Route path="*" element={<NotFound />} />
-          </Routes>
+          <div className="main-section">
+            <div className="main-section__content">
+              <Header />
+              <Routes>
+                <Route path="/" element={<Main />} />
+                <Route path="*" element={<NotFound />} />
+              </Routes>
+            </div>
+          </div>
         </div>
       </div>
     </BrowserRouter>

@@ -1,13 +1,18 @@
 .page {
   box-sizing: border-box;
+  min-height: 100vh;
+}
+
+.main-section {
   background-image: url("../../assets/backgroundImage.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
 }
 
-.page__content {
+.main-section__content {
   max-width: 1440px;
   margin: 0 auto;
-  padding: 0 104px 26px;
+  padding: 0 104px;
+  flex-grow: 1;
 }
