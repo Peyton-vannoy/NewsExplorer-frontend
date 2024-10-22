@@ -1,0 +1,37 @@
+.about {
+  background-color: #fff;
+  padding: 80px 0 80px 104px;
+}
+
+.about__content {
+  max-width: 1440px;
+  display: flex;
+}
+
+.about__image {
+  border-radius: 50%;
+  width: 464px;
+  height: 464px;
+  object-fit: cover;
+  margin-right: 56px;
+}
+
+.about__text {
+  max-width: 600px;
+  margin-top: 51px;
+}
+
+.about__title {
+  font-family: "Roboto Slab", Arial, sans-serif;
+  font-size: 40px;
+  line-height: 46px;
+  font-weight: 400;
+  margin: 0 0 24px;
+}
+
+.about__paragraph {
+  font-family: "Roboto", Arial, sans-serif;
+  font-size: 18px;
+  line-height: 24px;
+  margin: 0;
+}
