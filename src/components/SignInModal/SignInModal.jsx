@@ -12,7 +12,11 @@ function SignInModal({ isOpen, onClose, setActiveModal }) {
   const [isFormValid, setIsFormValid] = useState(false);
 
   const checkFormValidity = () => {
-    const isValid = email.trim() !== "" && password.trim() !== "";
+    const isValid =
+      email.trim() !== "" &&
+      password.trim() !== "" &&
+      !emailError &&
+      !passwordError;
     setIsFormValid(isValid);
   };
 
