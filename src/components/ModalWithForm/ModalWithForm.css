@@ -74,7 +74,7 @@
 }
 
 .modal__label-password {
-  margin-bottom: 8px;
+  margin: 31px 0 8px;
 }
 
 .modal__input {
@@ -93,17 +93,16 @@
 }
 
 .modal__input-email {
-  margin-bottom: 31px;
+  /* margin-bottom: 31px; */
   padding-bottom: 10px;
 }
 
 .modal__input-password {
-  margin-bottom: 39px;
   padding-bottom: 11px;
 }
 
 .modal__submit-button {
-  margin-bottom: 16px;
+  margin-top: 39px;
   padding: 0;
   width: 100%;
   height: 64px;
@@ -114,5 +113,11 @@
   font-size: 18px;
   font-weight: 500;
   line-height: 24px;
+  background-color: #2f71e5;
+  color: #fff;
+}
+
+.modal__submit-button:disabled {
+  background-color: #e6e8eb;
   color: #b6bcbf;
 }

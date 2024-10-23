@@ -1,19 +1,60 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { validateEmail, validatePassword } from "../../utils/formValidation";
 import "./SignInModal.css";
 
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 function SignInModal({ isOpen, onClose, setActiveModal }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [emailError, setEmailError] = useState("");
+  const [passwordError, setPasswordError] = useState("");
+
+  const [isFormValid, setIsFormValid] = useState(false);
+
+  const checkFormValidity = () => {
+    const isValid = email.trim() !== "" && password.trim() !== "";
+    setIsFormValid(isValid);
+  };
+
+  const handleEmailChange = (e) => {
+    const value = e.target.value;
+    setEmail(value);
+    setEmailError(validateEmail(value));
+    checkFormValidity();
+  };
+
+  const handlePasswordChange = (e) => {
+    const value = e.target.value;
+    setPassword(value);
+    setPasswordError(validatePassword(value));
+    checkFormValidity();
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (!isFormValid) {
+      return;
+    }
+    console.log("Form submitted");
   };
 
   const handleSignUpClick = () => {
     onClose();
     setActiveModal("Sign Up");
   };
+
+  useEffect(() => {
+    checkFormValidity();
+  }, [email, password]);
+
+  useEffect(() => {
+    if (!isOpen) {
+      setEmail("");
+      setPassword("");
+      setEmailError("");
+      setPasswordError("");
+    }
+  }, [isOpen]);
 
   const additionalContent = (
     <p className="modal__signup-button">
@@ -32,6 +73,7 @@ function SignInModal({ isOpen, onClose, setActiveModal }) {
       onSubmit={handleSubmit}
       onClose={onClose}
       additionalContent={additionalContent}
+      isFormValid={isFormValid}
     >
       <label className="modal__label modal__label-email">Email</label>
       <input
@@ -40,8 +82,10 @@ function SignInModal({ isOpen, onClose, setActiveModal }) {
         name="email"
         placeholder="Enter email"
         value={email}
-        onChange={(e) => setEmail(e.target.value)}
+        onChange={handleEmailChange}
+        required
       />
+      {emailError && <p className="modal__error">{emailError}</p>}
 
       <label className="modal__label modal__label-password">Password</label>
       <input
@@ -50,8 +94,12 @@ function SignInModal({ isOpen, onClose, setActiveModal }) {
         name="password"
         placeholder="Enter password"
         value={password}
-        onChange={(e) => setPassword(e.target.value)}
+        onChange={handlePasswordChange}
+        required
+        minLength={8}
+        maxLength={20}
       />
+      {passwordError && <p className="modal__error">{passwordError}</p>}
     </ModalWithForm>
   );
 }
