@@ -107,9 +107,6 @@ function SignInModal({ isOpen, onClose, onSignUpClick }) {
           minLength={5}
           maxLength={20}
         />
-        <p className={`modal__error ${passwordError ? "visible" : ""}`}>
-          {passwordError}
-        </p>
       </div>
     </ModalWithForm>
   );
