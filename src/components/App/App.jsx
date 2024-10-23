@@ -3,6 +3,7 @@ import Header from "../Header/Header";
 import Main from "../Main/Main";
 import NotFound from "../NotFound/NotFound";
 import SignInModal from "../SignInModal/SignInModal";
+import SignUpModal from "../SignUpModal/SignUpModal";
 import Footer from "../Footer/Footer";
 import About from "../About/About";
 import { Routes, Route } from "react-router-dom";
@@ -13,6 +14,10 @@ function App() {
 
   const handleSignInClick = () => {
     setActiveModal("Sign In");
+  };
+
+  const handleSignUpClick = () => {
+    setActiveModal("Sign Up");
   };
 
   return (
@@ -32,6 +37,13 @@ function App() {
       <SignInModal
         isOpen={activeModal === "Sign In"}
         onClose={() => setActiveModal("")}
+        onSignUpClick={handleSignUpClick}
+      />
+
+      <SignUpModal
+        isOpen={activeModal === "Sign Up"}
+        onClose={() => setActiveModal("")}
+        onSignInClick={handleSignInClick}
       />
     </div>
   );

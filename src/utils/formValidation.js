@@ -16,3 +16,10 @@ export const validatePassword = (password) => {
   }
   return "";
 };
+
+export const validateUsername = (username) => {
+  if (!username) {
+    return "Username is required";
+  }
+  return "";
+};

@@ -3,12 +3,11 @@ import { validateEmail, validatePassword } from "../../utils/formValidation";
 import "./SignInModal.css";
 
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
-function SignInModal({ isOpen, onClose, setActiveModal }) {
+function SignInModal({ isOpen, onClose, onSignUpClick }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [emailError, setEmailError] = useState("");
   const [passwordError, setPasswordError] = useState("");
-
   const [isFormValid, setIsFormValid] = useState(false);
 
   const checkFormValidity = () => {
@@ -44,7 +43,7 @@ function SignInModal({ isOpen, onClose, setActiveModal }) {
 
   const handleSignUpClick = () => {
     onClose();
-    setActiveModal("Sign Up");
+    onSignUpClick();
   };
 
   useEffect(() => {
