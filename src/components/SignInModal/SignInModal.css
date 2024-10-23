@@ -14,10 +14,3 @@
   color: #2f71e5;
   cursor: pointer;
 }
-
-.modal__error {
-  color: #ff0000;
-  font-size: 12px;
-  line-height: 15px;
-  margin: 3px 0 0;
-}

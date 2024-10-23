@@ -76,30 +76,38 @@ function SignInModal({ isOpen, onClose, setActiveModal }) {
       isFormValid={isFormValid}
     >
       <label className="modal__label modal__label-email">Email</label>
-      <input
-        className="modal__input modal__input-email"
-        type="email"
-        name="email"
-        placeholder="Enter email"
-        value={email}
-        onChange={handleEmailChange}
-        required
-      />
-      {emailError && <p className="modal__error">{emailError}</p>}
+      <div className="modal__input-container">
+        <input
+          className="modal__input modal__input-email"
+          type="email"
+          name="email"
+          placeholder="Enter email"
+          value={email}
+          onChange={handleEmailChange}
+          required
+        />
+        <p className={`modal__error ${emailError ? "visible" : ""}`}>
+          {emailError}
+        </p>
+      </div>
 
       <label className="modal__label modal__label-password">Password</label>
-      <input
-        className="modal__input modal__input-password"
-        type="password"
-        name="password"
-        placeholder="Enter password"
-        value={password}
-        onChange={handlePasswordChange}
-        required
-        minLength={8}
-        maxLength={20}
-      />
-      {passwordError && <p className="modal__error">{passwordError}</p>}
+      <div className="modal__input-container">
+        <input
+          className="modal__input modal__input-password"
+          type="password"
+          name="password"
+          placeholder="Enter password"
+          value={password}
+          onChange={handlePasswordChange}
+          required
+          minLength={5}
+          maxLength={20}
+        />
+        <p className={`modal__error ${passwordError ? "visible" : ""}`}>
+          {passwordError}
+        </p>
+      </div>
     </ModalWithForm>
   );
 }

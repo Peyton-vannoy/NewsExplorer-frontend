@@ -3,7 +3,7 @@ export const validateEmail = (email) => {
   if (!email) {
     return "Email is required";
   } else if (!emailRegex.test(email)) {
-    return "Please enter a valid email address";
+    return "Invalid email address";
   }
   return "";
 };
@@ -11,8 +11,8 @@ export const validateEmail = (email) => {
 export const validatePassword = (password) => {
   if (!password) {
     return "Password is required";
-  } else if (password.length < 8) {
-    return "Password must be at least 8 characters long";
+  } else if (password.length < 5) {
+    return "Password must be at least 5 characters long";
   }
   return "";
 };
