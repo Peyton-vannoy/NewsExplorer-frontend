@@ -2,8 +2,7 @@ import "./App.css";
 import Header from "../Header/Header";
 import Main from "../Main/Main";
 import NotFound from "../NotFound/NotFound";
-import SignInModal from "../SignInModal/SignInModal";
-import SignUpModal from "../SignUpModal/SignUpModal";
+import PopupWithForm from "../PopupWithForm/PopupWithForm";
 import Footer from "../Footer/Footer";
 import About from "../About/About";
 import { Routes, Route } from "react-router-dom";
@@ -34,16 +33,20 @@ function App() {
       <About />
       <Footer />
 
-      <SignInModal
+      <PopupWithForm
         isOpen={activeModal === "Sign In"}
         onClose={() => setActiveModal("")}
         onSignUpClick={handleSignUpClick}
+        onSignInClick={handleSignInClick}
+        type="signin"
       />
 
-      <SignUpModal
+      <PopupWithForm
         isOpen={activeModal === "Sign Up"}
         onClose={() => setActiveModal("")}
         onSignInClick={handleSignInClick}
+        onSignUpClick={handleSignUpClick}
+        type="signup"
       />
     </div>
   );

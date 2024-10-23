@@ -5,9 +5,15 @@ import {
   validatePassword,
   validateUsername,
 } from "../../utils/formValidation";
-import "./SignUpModal.css";
+import "./PopupWithForm.css";
 
-function SignUpModal({ isOpen, onClose, onSignInClick }) {
+function PopupWithForm({
+  isOpen,
+  onClose,
+  onSignInClick,
+  onSignUpClick,
+  type,
+}) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [username, setUsername] = useState("");
@@ -19,12 +25,10 @@ function SignUpModal({ isOpen, onClose, onSignInClick }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!isFormValid) {
-      return;
-    }
-    if (email === "example@test.com") {
+    if (!isFormValid) return;
+
+    if (type === "signup" && email === "example@test.com") {
       setFormError("This email is not available");
-      setEmailError("");
     } else {
       console.log("Form submitted");
     }
@@ -52,19 +56,13 @@ function SignUpModal({ isOpen, onClose, onSignInClick }) {
     checkFormValidity();
   };
 
-  const handleSignInClick = () => {
-    onClose();
-    onSignInClick();
-  };
-
   const checkFormValidity = () => {
     setIsFormValid(
       email.trim() !== "" &&
         !emailError &&
         password.trim() !== "" &&
         !passwordError &&
-        username.trim() !== "" &&
-        !usernameError
+        (type === "signin" || (username.trim() !== "" && !usernameError))
     );
   };
 
@@ -86,23 +84,24 @@ function SignUpModal({ isOpen, onClose, onSignInClick }) {
   }, [isOpen]);
 
   const additionalContent = (
-    <>
-      <p className="modal__signup-button">
-        or{" "}
-        <span className="modal__signup-button-text" onClick={handleSignInClick}>
-          Sign in
-        </span>
-      </p>
-    </>
+    <p className="modal__signup-button">
+      or{" "}
+      <span
+        className="modal__signup-button-text"
+        onClick={type === "signin" ? onSignUpClick : onSignInClick}
+      >
+        {type === "signin" ? "Sign up" : "Sign in"}
+      </span>
+    </p>
   );
 
   return (
     <ModalWithForm
       isOpen={isOpen}
       onClose={onClose}
-      title="Sign up"
-      name="signup"
-      buttonText="Sign up"
+      title={type === "signin" ? "Sign in" : "Sign up"}
+      name={type}
+      buttonText={type === "signin" ? "Sign in" : "Sign up"}
       onSubmit={handleSubmit}
       isFormValid={isFormValid}
       additionalContent={additionalContent}
@@ -140,23 +139,27 @@ function SignUpModal({ isOpen, onClose, onSignInClick }) {
         </p>
       </div>
 
-      <label className="modal__label modal__label-username">Username</label>
-      <div className="modal__input-container">
-        <input
-          className="modal__input modal__input-username"
-          type="text"
-          name="username"
-          placeholder="Enter your username"
-          value={username}
-          onChange={handleUsernameChange}
-          required
-        />
-        <p className={`modal__error ${usernameError ? "visible" : ""}`}>
-          {usernameError}
-        </p>
-      </div>
+      {type === "signup" && (
+        <>
+          <label className="modal__label modal__label-username">Username</label>
+          <div className="modal__input-container">
+            <input
+              className="modal__input modal__input-username"
+              type="text"
+              name="username"
+              placeholder="Enter your username"
+              value={username}
+              onChange={handleUsernameChange}
+              required
+            />
+            <p className={`modal__error ${usernameError ? "visible" : ""}`}>
+              {usernameError}
+            </p>
+          </div>
+        </>
+      )}
     </ModalWithForm>
   );
 }
 
-export default SignUpModal;
+export default PopupWithForm;
