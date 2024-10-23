@@ -24,6 +24,7 @@ function SignUpModal({ isOpen, onClose, onSignInClick }) {
     }
     if (email === "example@test.com") {
       setFormError("This email is not available");
+      setEmailError("");
     } else {
       console.log("Form submitted");
     }
@@ -33,6 +34,7 @@ function SignUpModal({ isOpen, onClose, onSignInClick }) {
     const value = e.target.value;
     setEmail(value);
     setEmailError(validateEmail(value));
+    setFormError("");
     checkFormValidity();
   };
 
@@ -85,9 +87,6 @@ function SignUpModal({ isOpen, onClose, onSignInClick }) {
 
   const additionalContent = (
     <>
-      <p className={`modal__error ${formError ? "visible" : ""}`}>
-        {formError}
-      </p>
       <p className="modal__signup-button">
         or{" "}
         <span className="modal__signup-button-text" onClick={handleSignInClick}>
@@ -107,6 +106,7 @@ function SignUpModal({ isOpen, onClose, onSignInClick }) {
       onSubmit={handleSubmit}
       isFormValid={isFormValid}
       additionalContent={additionalContent}
+      errorMessage={formError}
     >
       <label className="modal__label modal__label-email">Email</label>
       <div className="modal__input-container">

@@ -11,6 +11,7 @@ function ModalWithForm({
   additionalContent,
   onClose,
   isFormValid,
+  errorMessage,
 }) {
   return (
     <div className={`modal ${isOpen ? "modal_opened" : ""}`}>
@@ -21,6 +22,9 @@ function ModalWithForm({
         </button>
         <form className="modal__form" onSubmit={onSubmit}>
           {children}
+          <p className={`modal__form-error  ${errorMessage ? "visible" : ""}`}>
+            {errorMessage}
+          </p>
           <button
             className="modal__submit-button"
             type="submit"

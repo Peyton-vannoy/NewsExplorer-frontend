@@ -5,3 +5,25 @@
 .modal__input-username {
   padding-bottom: 11px;
 }
+
+.modal__form-error {
+  position: absolute;
+  bottom: 136px;
+  left: 0;
+  right: 0;
+  width: 100%;
+  color: #ff0000;
+  font-size: 12px;
+  line-height: 15px;
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0.3s ease-in-out, opacity 0.3s ease-in-out;
+  text-align: center;
+}
+
+.modal__form-error.visible {
+  visibility: visible;
+  opacity: 1;
+  margin-top: 17px;
+  margin-bottom: 8px;
+}

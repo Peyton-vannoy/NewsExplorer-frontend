@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { validateEmail, validatePassword } from "../../utils/formValidation";
 import "./SignInModal.css";
-
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
+
 function SignInModal({ isOpen, onClose, onSignUpClick }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
