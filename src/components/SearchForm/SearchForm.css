@@ -1,5 +1,6 @@
 .search-form {
   position: relative;
+  margin-bottom: 80px;
 }
 
 .search-form__input {
