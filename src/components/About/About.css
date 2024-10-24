@@ -5,7 +5,9 @@
 
 .about__content {
   max-width: 1440px;
-  display: flex;
+  display: grid;
+  grid-template-columns: 464px 1fr;
+  gap: 56px;
 }
 
 .about__image {
@@ -13,7 +15,6 @@
   width: 464px;
   height: 464px;
   object-fit: cover;
-  margin-right: 56px;
 }
 
 .about__text {
@@ -26,8 +27,6 @@
   line-height: 46px;
   font-weight: 400;
   margin: 51px 0 24px;
-  height: 46px;
-  width: 600px;
 }
 
 .about__paragraph {
@@ -35,5 +34,4 @@
   font-size: 18px;
   line-height: 24px;
   margin: 0;
-  height: 120px;
 }

@@ -9,6 +9,12 @@ function SearchForm({ onSearch }) {
     onSearch(query);
   };
 
+  const handleEnter = (event) => {
+    if (event.key === "Enter") {
+      onSearch(query);
+    }
+  };
+
   return (
     <div className="search-form" onSubmit={handleSearch}>
       <input
@@ -17,6 +23,7 @@ function SearchForm({ onSearch }) {
         placeholder="Enter topic"
         value={query}
         onChange={(event) => setQuery(event.target.value)}
+        onKeyDown={handleEnter}
       />
       <button className="search-form__button" onClick={handleSearch}>
         Search
