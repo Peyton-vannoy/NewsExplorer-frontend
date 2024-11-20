@@ -10,9 +10,14 @@
   padding: 0;
 }
 
-.main-section__content {
+.hero-section {
   background-image: url("../../assets/backgroundImage.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  min-height: 576px;
+}
+
+.hero-content {
+  padding: 0 0 80px;
 }

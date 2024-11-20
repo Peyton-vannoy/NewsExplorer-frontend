@@ -11,7 +11,7 @@
   right: 0;
   bottom: 0;
   margin: auto;
-
+  color: #444;
   animation: spin 0.75s infinite linear;
 }
 

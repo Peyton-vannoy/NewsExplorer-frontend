@@ -1,0 +1,12 @@
+.news-cards {
+  padding: 64px 104px;
+  background-color: #f5f6f7;
+}
+
+.news-cards__container {
+  max-width: 1232px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}

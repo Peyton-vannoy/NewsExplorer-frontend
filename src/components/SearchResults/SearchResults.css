@@ -1,0 +1,36 @@
+.search-results {
+  padding: 80px 0;
+  background-color: #f5f6f7;
+  width: 100%;
+  min-height: 282px;
+}
+
+.search-results__title {
+  font-family: "Roboto Slab", "Times New Roman", sans-serif;
+  font-size: 40px;
+  font-weight: 400;
+  line-height: 46px;
+  margin: 0;
+  padding-left: 104px;
+}
+
+.search-results__button {
+  margin: 0 auto;
+  width: 288px;
+  height: 64px;
+  background-color: #fff;
+  border-radius: 80px;
+  font-family: "Roboto", "Arial", sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 24px;
+  display: block;
+  cursor: pointer;
+  border: none;
+  color: #1a1b22;
+}
+
+.search-results__button:hover {
+  opacity: 0.9;
+  background-color: #e8e8e8;
+}
