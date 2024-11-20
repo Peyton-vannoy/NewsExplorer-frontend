@@ -33,7 +33,7 @@ function Main({ onSearchResults }) {
         isSearched: true,
         results: mockResults,
       });
-    }, 10000);
+    }, 1000);
   };
 
   return (
