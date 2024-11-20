@@ -2,6 +2,8 @@ import "./App.css";
 import Header from "../Header/Header";
 import Main from "../Main/Main";
 import SearchResults from "../SearchResults/SearchResults";
+import NotFound from "../NotFound/NotFound";
+import Preloader from "../Preloader/Preloader";
 import SignInModal from "../SignInModal/SignInModal";
 import SignUpModal from "../SignUpModal/SignUpModal";
 import Footer from "../Footer/Footer";
@@ -44,15 +46,21 @@ function App() {
           </div>
         </div>
 
-        {(searchState.isLoading ||
-          searchState.isSearched ||
-          searchState.results.length > 0) && (
-          <SearchResults
-            isLoading={searchState.isLoading}
-            isSearched={searchState.isSearched}
-            searchResults={searchState.results}
-          />
-        )}
+        {searchState.isLoading && <Preloader />}
+
+        {!searchState.isLoading &&
+          searchState.isSearched &&
+          searchState.results.length === 0 && <NotFound />}
+
+        {!searchState.isLoading &&
+          searchState.isSearched &&
+          searchState.results.length > 0 && (
+            <SearchResults
+              isLoading={searchState.isLoading}
+              isSearched={searchState.isSearched}
+              searchResults={searchState.results}
+            />
+          )}
 
         <About />
         <Footer />

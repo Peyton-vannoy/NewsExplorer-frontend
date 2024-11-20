@@ -14,6 +14,8 @@ function Main({ onSearchResults }) {
     setIsLoading(true);
     setIsSearched(true);
 
+    onSearchResults({ isLoading: true, isSearched: true, results: [] });
+
     setTimeout(() => {
       const mockResults = [
         {
@@ -31,7 +33,7 @@ function Main({ onSearchResults }) {
         isSearched: true,
         results: mockResults,
       });
-    }, 1000);
+    }, 10000);
   };
 
   return (
