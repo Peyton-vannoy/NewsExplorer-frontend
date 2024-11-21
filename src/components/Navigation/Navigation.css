@@ -1,7 +1,6 @@
 .navigation {
   display: flex;
   align-items: center;
-  gap: 42px;
   padding-right: 104px;
 }
 
@@ -13,6 +12,12 @@
   color: #ffffff;
   text-decoration: none;
   position: relative;
+  margin-right: 42px;
+}
+
+.navigation__link-saved {
+  margin-right: 64px;
+  margin-left: 34px;
 }
 
 .navigation__link::after {
@@ -27,6 +32,15 @@
   transition: transform 0.3s ease;
 }
 
+.navigation__link-saved::after {
+  content: "";
+  position: absolute;
+  width: 176px;
+  height: 3px;
+  background-color: #ffffff;
+  bottom: -28px;
+  left: -30px;
+}
 .navigation__link:hover::after,
 .navigation__link.active::after {
   transform: scaleX(1);
@@ -45,6 +59,14 @@
   color: #ffffff;
   cursor: pointer;
   transition: opacity 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.navigation__button-logout {
+  width: 112px;
 }
 
 .navigation__button:hover {

@@ -18,6 +18,7 @@ function App() {
     isSearched: false,
     results: [],
   });
+  const [isLoggedIn, setIsLoggedIn] = useState(true);
 
   const handleSearchResults = (newState) => {
     setSearchState(newState);
@@ -31,17 +32,29 @@ function App() {
     setActiveModal("Sign Up");
   };
 
+  const handleSignOutClick = () => {
+    setIsLoggedIn(false);
+  };
+
   return (
     <div className="page">
       <div className="page-content">
         <div className="hero-section">
-          <Header onSignInClick={handleSignInClick} />
+          <Header
+            onSignInClick={handleSignInClick}
+            onSignOutClick={handleSignOutClick}
+            isLoggedIn={isLoggedIn}
+          />
           <div className="hero-content">
             <Routes>
               <Route
                 path="/"
                 element={<Main onSearchResults={handleSearchResults} />}
               />
+              {/* <Route
+                path="/saved-news"
+                element={<SavedNews onSearchResults={handleSearchResults} />}
+              /> */}
             </Routes>
           </div>
         </div>
@@ -59,6 +72,7 @@ function App() {
               isLoading={searchState.isLoading}
               isSearched={searchState.isSearched}
               searchResults={searchState.results}
+              onSignInClick={handleSignInClick}
             />
           )}
 

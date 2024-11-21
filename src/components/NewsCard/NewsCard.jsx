@@ -3,7 +3,14 @@ import bookmarkIcon from "../../assets/bookmarkIcon.png";
 import bookmarkIconActive from "../../assets/bookmarkIconActive.png";
 import "./NewsCard.css";
 
-function NewsCard({ title, description, publishedAt, source, urlToImage }) {
+function NewsCard({
+  title,
+  description,
+  publishedAt,
+  source,
+  urlToImage,
+  onSignInClick,
+}) {
   const formatDate = (dateString) => {
     return new Date(dateString).toLocaleDateString("en-US", {
       year: "numeric",
@@ -16,6 +23,9 @@ function NewsCard({ title, description, publishedAt, source, urlToImage }) {
     <article className="news__card">
       <img className="news__card-image" src={urlToImage} alt={title} />
       <div className="news__card-bookmark">
+        <button className="news__card-tooltip" onClick={onSignInClick}>
+          Sign in to save articles
+        </button>
         <button className="news__card-bookmark-button">
           <img
             className="news__card-bookmark-icon"
