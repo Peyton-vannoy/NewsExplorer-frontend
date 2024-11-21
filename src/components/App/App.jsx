@@ -40,11 +40,6 @@ function App() {
   return (
     <div className="page">
       <div className="page-content">
-        <Header
-          onSignInClick={handleSignInClick}
-          onSignOutClick={handleSignOutClick}
-          isLoggedIn={isLoggedIn}
-        />
         <Routes>
           <Route
             path="/"
@@ -52,6 +47,11 @@ function App() {
               <>
                 <div className="hero-section">
                   <div className="hero-content">
+                    <Header
+                      onSignInClick={handleSignInClick}
+                      onSignOutClick={handleSignOutClick}
+                      isLoggedIn={isLoggedIn}
+                    />
                     <Main onSearchResults={handleSearchResults} />
                   </div>
                 </div>
@@ -77,7 +77,16 @@ function App() {
           />
           <Route
             path="/saved-news"
-            element={<SavedNews onSearchResults={handleSearchResults} />}
+            element={
+              <>
+                <Header
+                  onSignInClick={handleSignInClick}
+                  onSignOutClick={handleSignOutClick}
+                  isLoggedIn={isLoggedIn}
+                />
+                <SavedNews onSearchResults={handleSearchResults} />
+              </>
+            }
           />
         </Routes>
 
