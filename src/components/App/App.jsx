@@ -2,6 +2,7 @@ import "./App.css";
 import Header from "../Header/Header";
 import Main from "../Main/Main";
 import SearchResults from "../SearchResults/SearchResults";
+import SavedNews from "../SavedNews/SavedNews";
 import NotFound from "../NotFound/NotFound";
 import Preloader from "../Preloader/Preloader";
 import SignInModal from "../SignInModal/SignInModal";
@@ -39,44 +40,47 @@ function App() {
   return (
     <div className="page">
       <div className="page-content">
-        <div className="hero-section">
-          <Header
-            onSignInClick={handleSignInClick}
-            onSignOutClick={handleSignOutClick}
-            isLoggedIn={isLoggedIn}
+        <Header
+          onSignInClick={handleSignInClick}
+          onSignOutClick={handleSignOutClick}
+          isLoggedIn={isLoggedIn}
+        />
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <>
+                <div className="hero-section">
+                  <div className="hero-content">
+                    <Main onSearchResults={handleSearchResults} />
+                  </div>
+                </div>
+                {searchState.isLoading && <Preloader />}
+
+                {!searchState.isLoading &&
+                  searchState.isSearched &&
+                  searchState.results.length === 0 && <NotFound />}
+
+                {!searchState.isLoading &&
+                  searchState.isSearched &&
+                  searchState.results.length > 0 && (
+                    <SearchResults
+                      isLoading={searchState.isLoading}
+                      isSearched={searchState.isSearched}
+                      searchResults={searchState.results}
+                      onSignInClick={handleSignInClick}
+                    />
+                  )}
+                <About />
+              </>
+            }
           />
-          <div className="hero-content">
-            <Routes>
-              <Route
-                path="/"
-                element={<Main onSearchResults={handleSearchResults} />}
-              />
-              {/* <Route
-                path="/saved-news"
-                element={<SavedNews onSearchResults={handleSearchResults} />}
-              /> */}
-            </Routes>
-          </div>
-        </div>
+          <Route
+            path="/saved-news"
+            element={<SavedNews onSearchResults={handleSearchResults} />}
+          />
+        </Routes>
 
-        {searchState.isLoading && <Preloader />}
-
-        {!searchState.isLoading &&
-          searchState.isSearched &&
-          searchState.results.length === 0 && <NotFound />}
-
-        {!searchState.isLoading &&
-          searchState.isSearched &&
-          searchState.results.length > 0 && (
-            <SearchResults
-              isLoading={searchState.isLoading}
-              isSearched={searchState.isSearched}
-              searchResults={searchState.results}
-              onSignInClick={handleSignInClick}
-            />
-          )}
-
-        <About />
         <Footer />
 
         <SignInModal
