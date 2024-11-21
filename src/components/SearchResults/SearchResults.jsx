@@ -1,5 +1,3 @@
-import Preloader from "../Preloader/Preloader";
-import NotFound from "../NotFound/NotFound";
 import NewsCardList from "../NewsCardList/NewsCardList";
 import "./SearchResults.css";
 

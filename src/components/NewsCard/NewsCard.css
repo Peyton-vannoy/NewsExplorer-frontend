@@ -1,23 +1,69 @@
-.news-card {
+.news__card {
   background: #ffffff;
   border-radius: 16px;
   overflow: hidden;
   width: 400px;
   height: 576px;
   position: relative;
+  cursor: pointer;
+  transition: box-shadow 0.3s ease;
 }
 
-.news-card__image {
+.news__card:hover {
+  transform: scale(1.01);
+  box-shadow: 0 10px 8px rgba(8, 29, 45, 0.1);
+}
+
+.news__card-image {
   width: 100%;
   height: 272px;
   object-fit: cover;
+  position: relative;
 }
 
-.news-card__context {
+.news__card-bookmark {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+}
+
+.news__card-bookmark-button {
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.news__card-bookmark-icon {
+  width: 14px;
+  height: 19px;
+  display: block;
+}
+
+.news__card-bookmark-icon_active {
+  position: absolute;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.news__card-bookmark-button:hover .news__card-bookmark-icon {
+  opacity: 0;
+}
+
+.news__card-bookmark-button:hover .news__card-bookmark-icon_active {
+  opacity: 1;
+}
+
+.news__card-context {
   padding: 20px 24px 24px;
 }
 
-.news-card__date {
+.news__card-date {
   font-family: "Source Sans Pro", sans-serif;
   font-size: 18px;
   line-height: 24px;
@@ -25,14 +71,14 @@
   margin: 0 0 12px;
 }
 
-.news-card__title {
+.news__card-title {
   font-family: "Roboto Slab", serif;
   font-size: 26px;
   line-height: 30px;
   margin: 0 0 16px;
 }
 
-.news-card__description {
+.news__card-description {
   font-family: "Roboto", sans-serif;
   font-size: 16px;
   line-height: 22px;
@@ -41,7 +87,7 @@
   height: 88px;
 }
 
-.news-card__source {
+.news__card-source {
   font-family: "Roboto Slab", serif;
   font-size: 16px;
   line-height: 20px;

@@ -1,12 +1,12 @@
-.news-cards {
+.news__card-list {
   padding: 64px 104px;
   background-color: #f5f6f7;
 }
 
-.news-cards__container {
+.news__card-list-container {
   max-width: 1232px;
   margin: 0 auto;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  display: flex;
+  flex-wrap: wrap;
   gap: 16px;
 }

@@ -1,4 +1,6 @@
 import React from "react";
+import bookmarkIcon from "../../assets/bookmarkIcon.png";
+import bookmarkIconActive from "../../assets/bookmarkIconActive.png";
 import "./NewsCard.css";
 
 function NewsCard({ title, description, publishedAt, source, urlToImage }) {
@@ -11,13 +13,27 @@ function NewsCard({ title, description, publishedAt, source, urlToImage }) {
   };
 
   return (
-    <article className="news-card">
-      <img className="news-card__image" src={urlToImage} alt={title} />
-      <div className="news-card__context">
-        <p className="news-card__date">{formatDate(publishedAt)}</p>
-        <h3 className="news-card__title">{title}</h3>
-        <p className="news-card__description">{description}</p>
-        <p className="news-card__source">{source.name}</p>
+    <article className="news__card">
+      <img className="news__card-image" src={urlToImage} alt={title} />
+      <div className="news__card-bookmark">
+        <button className="news__card-bookmark-button">
+          <img
+            className="news__card-bookmark-icon"
+            src={bookmarkIcon}
+            alt="bookmark"
+          />
+          <img
+            className="news__card-bookmark-icon news__card-bookmark-icon_active"
+            src={bookmarkIconActive}
+            alt="bookmark"
+          />
+        </button>
+      </div>
+      <div className="news__card-context">
+        <p className="news__card-date">{formatDate(publishedAt)}</p>
+        <h3 className="news__card-title">{title}</h3>
+        <p className="news__card-description">{description}</p>
+        <p className="news__card-source">{source.name}</p>
       </div>
     </article>
   );

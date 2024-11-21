@@ -25,6 +25,20 @@ function Main({ onSearchResults }) {
           source: { name: "Sample Source" },
           urlToImage: "https://via.placeholder.com/150",
         },
+        {
+          title: "Sample News Article",
+          description: "This is a sample news article",
+          publishedAt: new Date().toISOString(),
+          source: { name: "Sample Source" },
+          urlToImage: "https://via.placeholder.com/150",
+        },
+        {
+          title: "Sample News Article",
+          description: "This is a sample news article",
+          publishedAt: new Date().toISOString(),
+          source: { name: "Sample Source" },
+          urlToImage: "https://via.placeholder.com/150",
+        },
       ];
       setSearchResults(mockResults);
       setIsLoading(false);
