@@ -72,3 +72,20 @@
 .navigation__button:hover {
   opacity: 0.8;
 }
+
+.navigation__link_dark {
+  color: #1a1b22;
+}
+
+.navigation__link_dark::after {
+  background-color: #1a1b22;
+}
+
+.navigation__button_dark {
+  border-color: #1a1b22;
+  color: #1a1b22;
+}
+
+.navigation__logout-icon_dark {
+  filter: brightness(0);
+}

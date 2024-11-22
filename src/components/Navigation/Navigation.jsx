@@ -3,34 +3,42 @@ import { NavLink } from "react-router-dom";
 import logoutIcon from "../../assets/logoutIcon.svg";
 import "./Navigation.css";
 
-function Navigation({ onSignInClick, onSignOutClick, isLoggedIn }) {
+function Navigation({ onSignInClick, onSignOutClick, isLoggedIn, isDark }) {
+  const linkClass = `navigation__link ${isDark ? "navigation__link_dark" : ""}`;
+  const buttonClass = `navigation__button ${
+    isDark ? "navigation__button_dark" : ""
+  }`;
+  const logoutIconClass = `navigation__logout-icon ${
+    isDark ? "navigation__logout-icon_dark" : ""
+  }`;
+
   return (
     <nav className="navigation">
-      <NavLink to="/" className="navigation__link" end>
+      <NavLink to="/" className={linkClass} end>
         Home
       </NavLink>
       {isLoggedIn ? (
         <>
           <NavLink
             to="/saved-news"
-            className="navigation__link navigation__link-saved"
+            className={`${linkClass} navigation__link-saved`}
           >
             Saved articles
           </NavLink>
           <button
-            className="navigation__button navigation__button-logout"
+            className={`${buttonClass} navigation__button-logout`}
             onClick={onSignOutClick}
           >
             Peyton
             <img
               src={logoutIcon}
               alt="Logout Button"
-              className="navigation__logout-icon"
+              className={logoutIconClass}
             />
           </button>
         </>
       ) : (
-        <button className="navigation__button" onClick={onSignInClick}>
+        <button className={buttonClass} onClick={onSignInClick}>
           Sign in
         </button>
       )}

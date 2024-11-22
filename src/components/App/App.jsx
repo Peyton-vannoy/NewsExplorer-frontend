@@ -83,6 +83,7 @@ function App() {
                   onSignInClick={handleSignInClick}
                   onSignOutClick={handleSignOutClick}
                   isLoggedIn={isLoggedIn}
+                  isDark={true}
                 />
                 <SavedNews onSearchResults={handleSearchResults} />
               </>

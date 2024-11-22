@@ -4,9 +4,9 @@ import Logo from "../../assets/NewsExplorer.svg";
 import Navigation from "../Navigation/Navigation";
 import "./Header.css";
 
-function Header({ onSignInClick, onSignOutClick, isLoggedIn }) {
+function Header({ onSignInClick, onSignOutClick, isLoggedIn, isDark }) {
   return (
-    <header className="header">
+    <header className={`header ${isDark ? "header_dark" : ""}`}>
       <Link to="/">
         <img src={Logo} alt="NewsExplorer" className="header__logo" />
       </Link>
@@ -14,6 +14,7 @@ function Header({ onSignInClick, onSignOutClick, isLoggedIn }) {
         onSignInClick={onSignInClick}
         onSignOutClick={onSignOutClick}
         isLoggedIn={isLoggedIn}
+        isDark={isDark}
       />
     </header>
   );
