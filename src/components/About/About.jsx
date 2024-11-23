@@ -1,4 +1,3 @@
-import React from "react";
 import authorImage from "../../assets/authorPlaceholder.avif";
 import "./About.css";
 

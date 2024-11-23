@@ -11,7 +11,12 @@ function Main({ onSearchResults }) {
     setIsLoading(true);
     setIsSearched(true);
 
-    onSearchResults({ isLoading: true, isSearched: true, results: [] });
+    onSearchResults({
+      isLoading: true,
+      isSearched: true,
+      results: [],
+      keyword: query,
+    });
 
     setTimeout(() => {
       const mockResults = [

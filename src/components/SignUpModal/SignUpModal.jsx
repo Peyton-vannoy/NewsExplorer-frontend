@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import {
   validateEmail,
@@ -57,7 +57,7 @@ function SignUpModal({ isOpen, onClose, onSignInClick }) {
     onSignInClick();
   };
 
-  const checkFormValidity = () => {
+  const checkFormValidity = useCallback(() => {
     setIsFormValid(
       email.trim() !== "" &&
         !emailError &&
@@ -66,7 +66,7 @@ function SignUpModal({ isOpen, onClose, onSignInClick }) {
         username.trim() !== "" &&
         !usernameError
     );
-  };
+  }, [email, password, username, emailError, passwordError, usernameError]);
 
   useEffect(() => {
     checkFormValidity();

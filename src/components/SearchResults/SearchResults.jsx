@@ -9,6 +9,7 @@ function SearchResults({
   onSaveArticle,
   isLoggedIn,
   savedArticles = [],
+  keyword,
 }) {
   const [visibleArticles, setVisibleArticles] = useState(3);
 
@@ -29,6 +30,7 @@ function SearchResults({
           onSaveArticle={onSaveArticle}
           isLoggedIn={isLoggedIn}
           savedArticles={savedArticles}
+          keyword={keyword}
         />
       )}
       {hasMoreResults && (

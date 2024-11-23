@@ -10,6 +10,7 @@ function NewsCardList({
   isLoggedIn,
   isInSavedNews,
   savedArticles = [],
+  keyword,
 }) {
   return (
     <section className="news__card-list">
@@ -19,6 +20,7 @@ function NewsCardList({
             <NewsCard
               key={index}
               {...article}
+              keyword={article.keyword || keyword}
               onSignInClick={onSignInClick}
               onRemoveArticle={() => onRemoveArticle(index)}
               onSaveArticle={onSaveArticle}

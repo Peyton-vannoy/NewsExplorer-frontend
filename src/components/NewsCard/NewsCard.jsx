@@ -33,7 +33,14 @@ function NewsCard({
       onSignInClick();
       return;
     }
-    onSaveArticle({ title, description, publishedAt, source, urlToImage });
+    onSaveArticle({
+      title,
+      description,
+      publishedAt,
+      source,
+      urlToImage,
+      keyword,
+    });
   };
 
   const handleDeleteClick = () => {

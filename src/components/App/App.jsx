@@ -1,4 +1,8 @@
 import "./App.css";
+import { Routes, Route } from "react-router-dom";
+import { useState } from "react";
+
+// Component imports
 import Header from "../Header/Header";
 import Main from "../Main/Main";
 import SearchResults from "../SearchResults/SearchResults";
@@ -9,19 +13,20 @@ import SignInModal from "../SignInModal/SignInModal";
 import SignUpModal from "../SignUpModal/SignUpModal";
 import Footer from "../Footer/Footer";
 import About from "../About/About";
-import { Routes, Route } from "react-router-dom";
-import { useState } from "react";
 
 function App() {
+  // State management
   const [activeModal, setActiveModal] = useState("");
   const [savedArticles, setSavedArticles] = useState([]);
   const [searchState, setSearchState] = useState({
     isLoading: false,
     isSearched: false,
     results: [],
+    keyword: "",
   });
   const [isLoggedIn, setIsLoggedIn] = useState(true);
 
+  // Article handlers
   const handleSearchResults = (articles) => {
     setSearchState(articles);
   };
@@ -30,16 +35,12 @@ function App() {
     const isAlreadySaved = savedArticles.some(
       (saved) => saved.title === article.title
     );
-    if (isAlreadySaved) {
-      setSavedArticles(
-        savedArticles.filter((saved) => saved.title !== article.title)
-      );
-    } else {
-      setSavedArticles([
-        ...savedArticles,
-        { ...article, keyword: searchState.keyword },
-      ]);
-    }
+
+    setSavedArticles(
+      isAlreadySaved
+        ? savedArticles.filter((saved) => saved.title !== article.title)
+        : [...savedArticles, { ...article, keyword: searchState.keyword }]
+    );
   };
 
   const handleRemoveSavedArticle = (indexToRemove) => {
@@ -48,16 +49,33 @@ function App() {
     );
   };
 
-  const handleSignInClick = () => {
-    setActiveModal("Sign In");
-  };
+  // Modal handlers
+  const handleSignInClick = () => setActiveModal("Sign In");
+  const handleSignUpClick = () => setActiveModal("Sign Up");
+  const handleSignOutClick = () => setIsLoggedIn(false);
+  const handleCloseModal = () => setActiveModal("");
 
-  const handleSignUpClick = () => {
-    setActiveModal("Sign Up");
-  };
+  // Render helpers
+  const renderSearchContent = () => {
+    if (searchState.isLoading) return <Preloader />;
 
-  const handleSignOutClick = () => {
-    setIsLoggedIn(false);
+    if (!searchState.isLoading && searchState.isSearched) {
+      return searchState.results.length === 0 ? (
+        <NotFound />
+      ) : (
+        <SearchResults
+          isLoading={searchState.isLoading}
+          isSearched={searchState.isSearched}
+          searchResults={searchState.results}
+          onSignInClick={handleSignInClick}
+          onSaveArticle={handleSavedArticles}
+          isLoggedIn={isLoggedIn}
+          savedArticles={savedArticles}
+          keyword={searchState.keyword}
+        />
+      );
+    }
+    return null;
   };
 
   return (
@@ -78,25 +96,7 @@ function App() {
                     <Main onSearchResults={handleSearchResults} />
                   </div>
                 </div>
-                {searchState.isLoading && <Preloader />}
-
-                {!searchState.isLoading &&
-                  searchState.isSearched &&
-                  searchState.results.length === 0 && <NotFound />}
-
-                {!searchState.isLoading &&
-                  searchState.isSearched &&
-                  searchState.results.length > 0 && (
-                    <SearchResults
-                      isLoading={searchState.isLoading}
-                      isSearched={searchState.isSearched}
-                      searchResults={searchState.results}
-                      onSignInClick={handleSignInClick}
-                      onSaveArticle={handleSavedArticles}
-                      isLoggedIn={isLoggedIn}
-                      savedArticles={savedArticles}
-                    />
-                  )}
+                {renderSearchContent()}
                 <About />
               </>
             }
@@ -124,12 +124,12 @@ function App() {
 
         <SignInModal
           isOpen={activeModal === "Sign In"}
-          onClose={() => setActiveModal("")}
+          onClose={handleCloseModal}
           onSignUpClick={handleSignUpClick}
         />
         <SignUpModal
           isOpen={activeModal === "Sign Up"}
-          onClose={() => setActiveModal("")}
+          onClose={handleCloseModal}
           onSignInClick={handleSignInClick}
         />
       </div>
