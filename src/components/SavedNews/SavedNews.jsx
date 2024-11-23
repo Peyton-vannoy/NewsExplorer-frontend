@@ -2,15 +2,19 @@ import "./SavedNews.css";
 import NewsCardList from "../NewsCardList/NewsCardList";
 
 function SavedNews({ onRemoveArticle, savedArticles }) {
+  const keywords = savedArticles.map((article) => article.keyword);
+
   return (
     <div className="saved__news">
       <section className="saved__news-header">
         <p className="saved__news-label">Saved articles</p>
-        <h1 className="saved__news-title">Peyton, you have 5 saved articles</h1>
+        <h1 className="saved__news-title">
+          Peyton, you have {savedArticles.length} saved articles
+        </h1>
         <p className="saved__news-keywords">
           By keywords:{" "}
           <span className="saved__news-keywords-bold">
-            Nature, Yellowstone, and 2 other
+            {keywords.join(", ")}
           </span>
         </p>
       </section>

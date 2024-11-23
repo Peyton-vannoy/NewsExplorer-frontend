@@ -6,22 +6,26 @@ function NewsCardList({
   articles,
   onSignInClick,
   onRemoveArticle,
+  onSaveArticle,
   isLoggedIn,
+  isInSavedNews,
 }) {
   return (
     <section className="news__card-list">
-      <div className="news__card-list-container">
+      <ul className="news__card-list-container">
         {articles.length > 0 &&
           articles.map((article, index) => (
             <NewsCard
               key={index}
               {...article}
               onSignInClick={onSignInClick}
-              onRemoveArticle={onRemoveArticle}
+              onRemoveArticle={() => onRemoveArticle(index)}
+              onSaveArticle={onSaveArticle}
               isLoggedIn={isLoggedIn}
+              isInSavedNews={isInSavedNews}
             />
           ))}
-      </div>
+      </ul>
     </section>
   );
 }

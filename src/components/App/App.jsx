@@ -33,9 +33,9 @@ function App() {
     ]);
   };
 
-  const handleRemoveSavedArticle = (articleToRemove) => {
+  const handleRemoveSavedArticle = (indexToRemove) => {
     setSavedArticles(
-      savedArticles.filter((article) => article.title !== articleToRemove.title)
+      savedArticles.filter((_, index) => index !== indexToRemove)
     );
   };
 
@@ -83,6 +83,7 @@ function App() {
                       isSearched={searchState.isSearched}
                       searchResults={searchState.results}
                       onSignInClick={handleSignInClick}
+                      onSaveArticle={handleSavedArticles}
                       isLoggedIn={isLoggedIn}
                     />
                   )}

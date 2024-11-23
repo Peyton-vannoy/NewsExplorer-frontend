@@ -2,6 +2,7 @@ import React from "react";
 import bookmarkIcon from "../../assets/bookmarkIcon.png";
 import bookmarkIconActive from "../../assets/bookmarkIconActive.png";
 import trashIcon from "../../assets/trash.svg";
+import trashIconActive from "../../assets/trashActive.svg";
 import "./NewsCard.css";
 
 function NewsCard({
@@ -11,16 +12,36 @@ function NewsCard({
   source,
   urlToImage,
   onSignInClick,
-  isInSavedNews,
   keyword,
   onRemoveArticle,
+  onSaveArticle,
   isLoggedIn,
+  isInSavedNews,
 }) {
   const formatDate = (dateString) => {
     return new Date(dateString).toLocaleDateString("en-US", {
       year: "numeric",
       month: "long",
       day: "numeric",
+    });
+  };
+
+  const handleBookmarkClick = () => {
+    if (!isLoggedIn) {
+      onSignInClick();
+      return;
+    }
+    onSaveArticle({ title, description, publishedAt, source, urlToImage });
+  };
+
+  const handleDeleteClick = () => {
+    onRemoveArticle({
+      title,
+      description,
+      publishedAt,
+      source,
+      urlToImage,
+      keyword,
     });
   };
 
@@ -32,25 +53,35 @@ function NewsCard({
         {isInSavedNews ? (
           <button
             className="news__card-trash-button"
-            onClick={() => onRemoveArticle()}
+            onClick={handleDeleteClick}
           >
-            <button className="news__card-trash-tooltip">
-              Remove from saved
-            </button>
+            <div className="news__card-trash-tooltip">
+              <p className="news__card-trash-tooltip-text">Remove from saved</p>
+            </div>
             <img
               className="news__card-trash-icon"
               src={trashIcon}
+              alt="trash"
+            />
+            <img
+              className="news__card-trash-icon news__card-trash-icon_active"
+              src={trashIconActive}
               alt="trash"
             />
           </button>
         ) : (
           <>
             {!isLoggedIn && (
-              <button className="news__card-tooltip" onClick={onSignInClick}>
-                Sign in to save articles
-              </button>
+              <div className="news__card-tooltip" onClick={onSignInClick}>
+                <p className="news__card-tooltip-text">
+                  Sign in to save articles
+                </p>
+              </div>
             )}
-            <button className="news__card-bookmark-button">
+            <button
+              className="news__card-bookmark-button"
+              onClick={handleBookmarkClick}
+            >
               <img
                 className="news__card-bookmark-icon"
                 src={bookmarkIcon}

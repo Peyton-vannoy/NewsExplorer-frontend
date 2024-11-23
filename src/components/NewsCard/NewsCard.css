@@ -39,7 +39,6 @@
   font-size: 12px;
   line-height: 14px;
   font-weight: 500;
-  padding: 11px 20px;
   color: #000000;
   opacity: 0;
   visibility: hidden;
@@ -50,6 +49,14 @@
   margin-right: 5px;
   border: none;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.news__card-tooltip-text {
+  padding: 11px 20px;
+  margin: 0;
 }
 
 .news__card-bookmark:hover .news__card-tooltip {
@@ -109,6 +116,11 @@
   margin: 0 0 18px;
   width: 352px;
   height: 88px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 5;
+  -webkit-box-orient: vertical;
 }
 
 .news__card-source {
@@ -153,6 +165,45 @@
 }
 
 .news__card-trash-icon {
-  width: 18px;
-  height: 19px;
+  width: 24px;
+  height: 24px;
+}
+
+.news__card-trash-tooltip {
+  background: #ffffff;
+  box-shadow: 0px 10px 22px rgba(59, 74, 116, 0.1);
+  border-radius: 10px;
+  font-family: "Roboto", sans-serif;
+  font-size: 12px;
+  line-height: 14px;
+  color: #000000;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  position: absolute;
+  right: 100%;
+  white-space: nowrap;
+  margin-right: 5px;
+  border: none;
+  cursor: pointer;
+}
+
+.news__card-trash-tooltip-text {
+  margin: 0;
+  padding: 13px 20px;
+}
+
+.news__card-trash-button:hover .news__card-trash-tooltip {
+  opacity: 1;
+  visibility: visible;
+}
+
+.news__card-trash-icon_active {
+  position: absolute;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.news__card-trash-button:hover .news__card-trash-icon_active {
+  opacity: 1;
 }

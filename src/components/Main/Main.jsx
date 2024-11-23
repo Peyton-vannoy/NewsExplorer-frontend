@@ -1,8 +1,5 @@
 import { useState } from "react";
 import SearchForm from "../SearchForm/SearchForm";
-import NewsCardList from "../NewsCardList/NewsCardList";
-import Preloader from "../Preloader/Preloader";
-import NotFound from "../NotFound/NotFound";
 import "./Main.css";
 
 function Main({ onSearchResults }) {
@@ -20,24 +17,68 @@ function Main({ onSearchResults }) {
       const mockResults = [
         {
           title: "Sample News Article",
-          description: "This is a sample news article",
+          description:
+            "This is a sample news article This is a sample news article This is a sample news article This is a sample news article This is a sample news article This is a sample news article This is a sample news article This is a sample news article This is a sample news article  This is a sample news article This is a sample news article This is a sample news article This is a sample news article ",
           publishedAt: new Date().toISOString(),
           source: { name: "Sample Source" },
-          urlToImage: "https://via.placeholder.com/150",
+          urlToImage:
+            "https://images.unsplash.com/photo-1731762512307-2271665eb149?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHw1fHx8ZW58MHx8fHx8",
         },
         {
           title: "Sample News Article",
           description: "This is a sample news article",
           publishedAt: new Date().toISOString(),
           source: { name: "Sample Source" },
-          urlToImage: "https://via.placeholder.com/150",
+          urlToImage:
+            "https://images.unsplash.com/photo-1731329891228-c5009dc54fb6?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHw3fHx8ZW58MHx8fHx8",
         },
         {
           title: "Sample News Article",
           description: "This is a sample news article",
           publishedAt: new Date().toISOString(),
           source: { name: "Sample Source" },
-          urlToImage: "https://via.placeholder.com/150",
+          urlToImage:
+            "https://images.unsplash.com/photo-1731762512307-2271665eb149?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHw1fHx8ZW58MHx8fHx8",
+        },
+        {
+          title: "Sample News Article",
+          description: "This is a sample news article",
+          publishedAt: new Date().toISOString(),
+          source: { name: "Sample Source" },
+          urlToImage:
+            "https://images.unsplash.com/photo-1731762512307-2271665eb149?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHw1fHx8ZW58MHx8fHx8",
+        },
+        {
+          title: "Sample News Article",
+          description: "This is a sample news article",
+          publishedAt: new Date().toISOString(),
+          source: { name: "Sample Source" },
+          urlToImage:
+            "https://images.unsplash.com/photo-1731762512307-2271665eb149?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHw1fHx8ZW58MHx8fHx8",
+        },
+        {
+          title: "Sample News Article",
+          description: "This is a sample news article",
+          publishedAt: new Date().toISOString(),
+          source: { name: "Sample Source" },
+          urlToImage:
+            "https://images.unsplash.com/photo-1731762512307-2271665eb149?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHw1fHx8ZW58MHx8fHx8",
+        },
+        {
+          title: "Sample News Article",
+          description: "This is a sample news article",
+          publishedAt: new Date().toISOString(),
+          source: { name: "Sample Source" },
+          urlToImage:
+            "https://images.unsplash.com/photo-1731762512307-2271665eb149?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHw1fHx8ZW58MHx8fHx8",
+        },
+        {
+          title: "Sample News Article",
+          description: "This is a sample news article",
+          publishedAt: new Date().toISOString(),
+          source: { name: "Sample Source" },
+          urlToImage:
+            "https://images.unsplash.com/photo-1731762512307-2271665eb149?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHw1fHx8ZW58MHx8fHx8",
         },
       ];
       setSearchResults(mockResults);
