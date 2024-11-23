@@ -1,45 +1,7 @@
 import "./SavedNews.css";
 import NewsCardList from "../NewsCardList/NewsCardList";
 
-function SavedNews() {
-  const savedArticles = [
-    {
-      title: "Title",
-      description: "Description",
-      publishedAt: "2024-01-01",
-      source: "Source",
-      urlToImage: "https://via.placeholder.com/150",
-    },
-    {
-      title: "Title",
-      description: "Description",
-      publishedAt: "2024-01-01",
-      source: "Source",
-      urlToImage: "https://via.placeholder.com/150",
-    },
-    {
-      title: "Title",
-      description: "Description",
-      publishedAt: "2024-01-01",
-      source: "Source",
-      urlToImage: "https://via.placeholder.com/150",
-    },
-    {
-      title: "Title",
-      description: "Description",
-      publishedAt: "2024-01-01",
-      source: "Source",
-      urlToImage: "https://via.placeholder.com/150",
-    },
-    {
-      title: "Title",
-      description: "Description",
-      publishedAt: "2024-01-01",
-      source: "Source",
-      urlToImage: "https://via.placeholder.com/150",
-    },
-  ];
-
+function SavedNews({ onRemoveArticle, savedArticles }) {
   return (
     <div className="saved__news">
       <section className="saved__news-header">
@@ -53,7 +15,11 @@ function SavedNews() {
         </p>
       </section>
       <section className="saved__news-cards">
-        <NewsCardList articles={savedArticles} />
+        <NewsCardList
+          articles={savedArticles}
+          onRemoveArticle={onRemoveArticle}
+          isInSavedNews={true}
+        />
       </section>
     </div>
   );

@@ -14,6 +14,7 @@ import { useState } from "react";
 
 function App() {
   const [activeModal, setActiveModal] = useState("");
+  const [savedArticles, setSavedArticles] = useState([]);
   const [searchState, setSearchState] = useState({
     isLoading: false,
     isSearched: false,
@@ -21,8 +22,21 @@ function App() {
   });
   const [isLoggedIn, setIsLoggedIn] = useState(true);
 
-  const handleSearchResults = (newState) => {
-    setSearchState(newState);
+  const handleSearchResults = (articles) => {
+    setSearchState(articles);
+  };
+
+  const handleSavedArticles = (article) => {
+    setSavedArticles([
+      ...savedArticles,
+      { ...article, keyword: searchState.keyword },
+    ]);
+  };
+
+  const handleRemoveSavedArticle = (articleToRemove) => {
+    setSavedArticles(
+      savedArticles.filter((article) => article.title !== articleToRemove.title)
+    );
   };
 
   const handleSignInClick = () => {
@@ -69,6 +83,7 @@ function App() {
                       isSearched={searchState.isSearched}
                       searchResults={searchState.results}
                       onSignInClick={handleSignInClick}
+                      isLoggedIn={isLoggedIn}
                     />
                   )}
                 <About />
@@ -85,7 +100,10 @@ function App() {
                   isLoggedIn={isLoggedIn}
                   isDark={true}
                 />
-                <SavedNews onSearchResults={handleSearchResults} />
+                <SavedNews
+                  onRemoveArticle={handleRemoveSavedArticle}
+                  savedArticles={savedArticles}
+                />
               </>
             }
           />
