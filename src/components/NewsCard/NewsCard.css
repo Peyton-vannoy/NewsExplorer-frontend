@@ -76,6 +76,18 @@
   position: relative;
 }
 
+.news__card-bookmark-button_saved:hover {
+  background: #fff;
+}
+
+.news__card-bookmark-button_saved .news__card-bookmark-icon {
+  filter: none;
+}
+
+.news__card-bookmark-button_saved .news__card-bookmark-icon_active {
+  filter: none;
+}
+
 .news__card-bookmark-icon_active {
   position: absolute;
   opacity: 0;
@@ -120,6 +132,7 @@
   text-overflow: ellipsis;
   display: -webkit-box;
   -webkit-line-clamp: 5;
+  line-clamp: 5;
   -webkit-box-orient: vertical;
 }
 

@@ -1,6 +1,7 @@
 import React from "react";
 import bookmarkIcon from "../../assets/bookmarkIcon.png";
-import bookmarkIconActive from "../../assets/bookmarkIconActive.png";
+import bookmarkIconHover from "../../assets/bookmarkIconHover.png";
+import bookmarkIconSaved from "../../assets/bookmarkIconSaved.png";
 import trashIcon from "../../assets/trash.svg";
 import trashIconActive from "../../assets/trashActive.svg";
 import "./NewsCard.css";
@@ -17,6 +18,7 @@ function NewsCard({
   onSaveArticle,
   isLoggedIn,
   isInSavedNews,
+  isSaved,
 }) {
   const formatDate = (dateString) => {
     return new Date(dateString).toLocaleDateString("en-US", {
@@ -79,17 +81,19 @@ function NewsCard({
               </div>
             )}
             <button
-              className="news__card-bookmark-button"
+              className={`news__card-bookmark-button ${
+                isSaved ? "news__card-bookmark-button_saved" : ""
+              }`}
               onClick={handleBookmarkClick}
             >
               <img
                 className="news__card-bookmark-icon"
-                src={bookmarkIcon}
+                src={isSaved ? bookmarkIconSaved : bookmarkIcon}
                 alt="bookmark"
               />
               <img
                 className="news__card-bookmark-icon news__card-bookmark-icon_active"
-                src={bookmarkIconActive}
+                src={isSaved ? bookmarkIconSaved : bookmarkIconHover}
                 alt="bookmark"
               />
             </button>

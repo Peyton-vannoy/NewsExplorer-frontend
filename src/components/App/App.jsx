@@ -27,10 +27,19 @@ function App() {
   };
 
   const handleSavedArticles = (article) => {
-    setSavedArticles([
-      ...savedArticles,
-      { ...article, keyword: searchState.keyword },
-    ]);
+    const isAlreadySaved = savedArticles.some(
+      (saved) => saved.title === article.title
+    );
+    if (isAlreadySaved) {
+      setSavedArticles(
+        savedArticles.filter((saved) => saved.title !== article.title)
+      );
+    } else {
+      setSavedArticles([
+        ...savedArticles,
+        { ...article, keyword: searchState.keyword },
+      ]);
+    }
   };
 
   const handleRemoveSavedArticle = (indexToRemove) => {
@@ -85,6 +94,7 @@ function App() {
                       onSignInClick={handleSignInClick}
                       onSaveArticle={handleSavedArticles}
                       isLoggedIn={isLoggedIn}
+                      savedArticles={savedArticles}
                     />
                   )}
                 <About />

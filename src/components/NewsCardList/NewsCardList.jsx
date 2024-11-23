@@ -9,6 +9,7 @@ function NewsCardList({
   onSaveArticle,
   isLoggedIn,
   isInSavedNews,
+  savedArticles = [],
 }) {
   return (
     <section className="news__card-list">
@@ -23,6 +24,9 @@ function NewsCardList({
               onSaveArticle={onSaveArticle}
               isLoggedIn={isLoggedIn}
               isInSavedNews={isInSavedNews}
+              isSaved={savedArticles.some(
+                (saved) => saved.title === article.title
+              )}
             />
           ))}
       </ul>

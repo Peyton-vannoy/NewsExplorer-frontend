@@ -8,6 +8,7 @@ function SearchResults({
   onSignInClick,
   onSaveArticle,
   isLoggedIn,
+  savedArticles = [],
 }) {
   const [visibleArticles, setVisibleArticles] = useState(3);
 
@@ -27,6 +28,7 @@ function SearchResults({
           onSignInClick={onSignInClick}
           onSaveArticle={onSaveArticle}
           isLoggedIn={isLoggedIn}
+          savedArticles={savedArticles}
         />
       )}
       {hasMoreResults && (
