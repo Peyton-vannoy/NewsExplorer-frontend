@@ -21,3 +21,14 @@
 .hero-content {
   padding: 0 0 80px;
 }
+
+@media screen and (max-width: 768px) {
+  .hero-section {
+    background-image: url("../../assets/backgroundImageTablet.png");
+    min-height: 400px;
+  }
+
+  .hero-content {
+    padding: 0 0 48px;
+  }
+}

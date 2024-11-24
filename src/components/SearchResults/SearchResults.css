@@ -33,3 +33,15 @@
   opacity: 0.9;
   background-color: #e8e8e8;
 }
+
+@media screen and (max-width: 768px) {
+  .search-results {
+    padding: 40px 0;
+  }
+
+  .search-results__title {
+    font-size: 30px;
+    line-height: 34px;
+    padding-left: 40px;
+  }
+}

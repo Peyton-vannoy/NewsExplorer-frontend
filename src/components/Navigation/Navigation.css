@@ -89,3 +89,36 @@
 .navigation__logout-icon_dark {
   filter: brightness(0);
 }
+
+@media (max-width: 768px) {
+  .navigation {
+    padding-right: 40px;
+  }
+
+  .navigation__link {
+    margin-right: 16px;
+    width: 64px;
+    text-align: center;
+    font-size: 16px;
+  }
+
+  .navigation__link.active::after {
+    width: 60px;
+    left: 2px;
+  }
+
+  .navigation__link-saved {
+    width: 160px;
+    margin-right: 16px;
+    margin-left: 0;
+  }
+
+  .navigation__link-saved::after {
+    width: 160px;
+    left: 0px;
+  }
+
+  .navigation__link .navigation__button {
+    width: 152px;
+  }
+}

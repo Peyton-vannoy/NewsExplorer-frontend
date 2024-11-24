@@ -125,7 +125,7 @@
   font-family: "Roboto", sans-serif;
   font-size: 16px;
   line-height: 22px;
-  margin: 0 0 18px;
+  margin: 0;
   width: 352px;
   height: 88px;
   overflow: hidden;
@@ -219,4 +219,52 @@
 
 .news__card-trash-button:hover .news__card-trash-icon_active {
   opacity: 1;
+}
+
+@media screen and (max-width: 768px) {
+  .news__card {
+    width: 224px;
+    height: 420px;
+  }
+
+  .news__card-image {
+    height: 150px;
+  }
+
+  .news__card-bookmark {
+    top: 8px;
+    right: 8px;
+  }
+
+  .news__card-context {
+    padding: 16px 16px 0 15px;
+  }
+
+  .news__card-date {
+    font-size: 16px;
+    line-height: 24px;
+    margin-bottom: 12px;
+    width: 147px;
+  }
+
+  .news__card-title {
+    font-size: 22px;
+    line-height: 24px;
+    margin-bottom: 10px;
+    width: 192px;
+  }
+
+  .news__card-description {
+    width: 192px;
+    height: 88px;
+    font-size: 16px;
+    line-height: 22px;
+  }
+
+  .news__card-source {
+    width: 192px;
+    height: 20px;
+    bottom: 16px;
+    left: 16px;
+  }
 }

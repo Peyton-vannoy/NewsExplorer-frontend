@@ -55,7 +55,7 @@ function NewsCard({
   };
 
   return (
-    <article className="news__card">
+    <li className="news__card">
       <img className="news__card-image" src={urlToImage} alt={title} />
       {isInSavedNews && <span className="news__card-keyword">{keyword}</span>}
       <div className="news__card-bookmark">
@@ -113,7 +113,7 @@ function NewsCard({
         <p className="news__card-description">{description}</p>
         <p className="news__card-source">{source.name}</p>
       </div>
-    </article>
+    </li>
   );
 }
 

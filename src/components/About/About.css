@@ -36,3 +36,46 @@
   margin: 0;
   height: 120px;
 }
+
+@media screen and (max-width: 1224px) {
+  .about {
+    padding: 40px 40px 61px 40px;
+  }
+
+  .about__image {
+    width: 320px;
+    height: 320px;
+    margin-right: 32px;
+  }
+
+  .about__title {
+    width: 424px;
+    margin-top: 0;
+  }
+
+  .about__paragraph {
+    height: 120px;
+    width: 424px;
+  }
+}
+
+@media screen and (max-width: 818px) {
+  .about__image {
+    width: 232px;
+    height: 232px;
+    margin-right: 32px;
+  }
+
+  .about__title {
+    font-size: 30px;
+    line-height: 40px;
+    width: 424px;
+    margin-bottom: 16px;
+  }
+
+  .about__paragraph {
+    width: 424px;
+    font-size: 18px;
+    line-height: 24px;
+  }
+}

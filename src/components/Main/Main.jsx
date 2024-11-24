@@ -23,7 +23,7 @@ function Main({ onSearchResults }) {
         {
           title: "Sample News",
           description:
-            "This is a sample news article This is a sample news article This is a sample news article This is a sample news article This is a sample news article This is a sample news article This is a sample news article This is a sample news article This is a sample news article  This is a sample news article This is a sample news article This is a sample news article This is a sample news article ",
+            "This is a sample newsle This ia sample news article This is a sample news article This is a sample news article This is a sample news article This is a sample news article This is a sample e This is a sample e This is a sample news article This is a sample news article This is a sample news article  This is a sample news article This is a sample news article This is a sample news article This is a sample news article ",
           publishedAt: new Date().toISOString(),
           source: { name: "Sample Source" },
           urlToImage:
@@ -31,7 +31,8 @@ function Main({ onSearchResults }) {
         },
         {
           title: "Sample",
-          description: "This is a sample news article",
+          description:
+            "We all know how good nature can make us feel. We have known it for millennia: the sound We all know how good nature can make us feel. We have known it for millennia: the soundWe all know how good nature can make us feel. We have known it for millennia: the sound...",
           publishedAt: new Date().toISOString(),
           source: { name: "Sample Source" },
           urlToImage:

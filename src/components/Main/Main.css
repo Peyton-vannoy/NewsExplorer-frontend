@@ -27,3 +27,19 @@
   background-color: #f5f6f7;
   width: 100%;
 }
+
+@media screen and (max-width: 768px) {
+  .hero-content__title {
+    font-size: 36px;
+    line-height: 40px;
+    margin: 38px 220px 16px 163px;
+    width: 385px;
+  }
+
+  .hero-content__subtitle {
+    font-size: 18px;
+    line-height: 24px;
+    margin: 0 156px 48px 160px;
+    width: 452px;
+  }
+}
