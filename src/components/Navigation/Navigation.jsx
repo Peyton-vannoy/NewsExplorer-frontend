@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import logoutIcon from "../../assets/logoutIcon.svg";
+import hamburgerIcon from "../../assets/mobileMenuBtn.png";
+import closeIcon from "../../assets/closeButton.svg";
+import logo from "../../assets/NewsExplorer.svg";
 import "./Navigation.css";
 
 function Navigation({ onSignInClick, onSignOutClick, isLoggedIn, isDark }) {
@@ -49,14 +52,52 @@ function Navigation({ onSignInClick, onSignOutClick, isLoggedIn, isDark }) {
             Sign in
           </button>
         )}
+
+        <button className="navigation__hamburger" onClick={toggleMobileMenu}>
+          <img src={hamburgerIcon} alt="hamburger" />
+        </button>
       </nav>
-      {/* <MobileMenu
-        isOpen={isMobileMenuOpen}
-        onClose={toggleMobileMenu}
-        isLoggedIn={isLoggedIn}
-        onSignOutClick={onSignOutClick}
-        onSignInClick={onSignInClick}
-      /> */}
+
+      {isMobileMenuOpen && (
+        <div className="navigation__mobile-menu">
+          <div className="navigation__mobile-header">
+            <img src={logo} alt="NewsExplorer" />
+            <button
+              className="navigation__mobile-close"
+              onClick={toggleMobileMenu}
+            >
+              <img src={closeIcon} alt="close" />
+            </button>
+          </div>
+          <div className="navigation__mobile-menu-container">
+            <div className="navigation__mobile-menu-links">
+              <NavLink to="/" className={linkClass} end>
+                Home
+              </NavLink>
+              {isLoggedIn ? (
+                <>
+                  <NavLink to="/saved-news" className={linkClass}>
+                    Saved articles
+                  </NavLink>
+                </>
+              ) : (
+                <button className={buttonClass} onClick={onSignInClick}>
+                  Sign in
+                </button>
+              )}
+              <button
+                className="navigation__mobile-button"
+                onClick={() => {
+                  isLoggedIn ? onSignOutClick() : onSignInClick();
+                  toggleMobileMenu();
+                }}
+              >
+                {isLoggedIn ? "Peyton" : "Sign in"}
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </>
   );
 }
