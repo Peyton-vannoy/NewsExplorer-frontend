@@ -15,8 +15,10 @@
   margin-right: 56px;
 }
 
-.about__text {
+.about__author-text {
   max-width: 600px;
+  display: flex;
+  flex-direction: column;
 }
 
 .about__title {
@@ -26,7 +28,7 @@
   font-weight: 400;
   margin: 51px 0 24px;
   height: 46px;
-  width: 600px;
+  max-width: 100%;
 }
 
 .about__paragraph {
@@ -63,7 +65,7 @@
   .about__image {
     width: 232px;
     height: 232px;
-    margin-right: 32px;
+    /* margin-right: ; */
   }
 
   .about__title {
@@ -77,5 +79,15 @@
     width: 424px;
     font-size: 18px;
     line-height: 24px;
+  }
+}
+
+@media (max-width: 728px) {
+  .about {
+    padding: 32px 16px;
+  }
+
+  .about__content {
+    flex-direction: column;
   }
 }

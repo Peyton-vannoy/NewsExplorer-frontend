@@ -6,7 +6,7 @@ function About() {
     <section className="about">
       <div className="about__content">
         <img src={authorImage} alt="author" className="about__image" />
-        <div className="about__text">
+        <div className="about__author-text">
           <h2 className="about__title">About the author</h2>
           <p className="about__paragraph">
             This block describes the author of the site, when he was born, where

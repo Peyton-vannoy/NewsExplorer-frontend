@@ -38,8 +38,14 @@
   padding-left: 104px;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 818px) {
   .header__logo {
     padding-left: 40px;
+  }
+}
+
+@media (max-width: 620px) {
+  .header__logo {
+    padding-left: 16px;
   }
 }

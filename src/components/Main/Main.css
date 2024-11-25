@@ -28,7 +28,7 @@
   width: 100%;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 818px) {
   .hero-content__title {
     font-size: 36px;
     line-height: 40px;

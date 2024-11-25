@@ -221,7 +221,7 @@
   opacity: 1;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 818px) {
   .news__card {
     width: 224px;
     height: 420px;

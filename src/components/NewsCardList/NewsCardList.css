@@ -13,7 +13,7 @@
   padding: 0;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 818px) {
   .news__card-list {
     padding: 32px 40px;
   }

@@ -44,3 +44,9 @@
   opacity: 0.7;
   transition: opacity 0.3s ease;
 }
+
+@media (max-width: 818px) {
+  .footer__content {
+    padding: 0 40px;
+  }
+}
