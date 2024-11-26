@@ -43,3 +43,21 @@
     width: 452px;
   }
 }
+
+@media (max-width: 620px) {
+  .hero-content__title {
+    margin: 30px auto 16px;
+    width: 100%;
+  }
+
+  .hero-content__subtitle {
+    margin: 0 auto 122px;
+    width: 100%;
+  }
+
+  .hero-content__wrapper {
+    max-width: 288px;
+    padding: 0 16px;
+    margin: 0 auto;
+  }
+}

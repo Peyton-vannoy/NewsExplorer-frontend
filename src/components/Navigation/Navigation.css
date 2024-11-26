@@ -186,6 +186,14 @@
   cursor: pointer;
 }
 
+.navigation__mobile-close {
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 28px;
+  cursor: pointer;
+}
+
 @media screen and (max-width: 620px) {
   .navigation__hamburger {
     display: flex;
@@ -240,6 +248,10 @@
 
   .navigation__hamburger {
     display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+    border: none;
   }
 
   .navigation__button {

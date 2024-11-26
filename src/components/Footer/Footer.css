@@ -50,3 +50,19 @@
     padding: 0 40px;
   }
 }
+
+@media (max-width: 540px) {
+  .footer__content {
+    padding: 0 16px;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .footer__link {
+    order: 1;
+  }
+
+  .footer__copyright {
+    order: 2;
+  }
+}

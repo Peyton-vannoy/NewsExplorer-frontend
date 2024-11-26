@@ -6,6 +6,7 @@
   width: 608px;
   height: 64px;
   border-radius: 100px;
+  box-sizing: border-box;
   border: none;
   font-family: "Roboto", Arial, sans-serif;
   font-size: 18px;
@@ -14,6 +15,11 @@
   padding: 0 24px;
   outline: none;
   transition: box-shadow 0.3s ease;
+}
+
+.search-form__input-container {
+  display: flex;
+  height: 64px;
 }
 
 .search-form__input:focus {
@@ -47,5 +53,28 @@
 @media screen and (max-width: 768px) {
   .search-form__input {
     width: 448px;
+  }
+}
+
+@media (max-width: 620px) {
+  .search-form {
+    position: relative;
+  }
+
+  .search-form__input-container {
+    flex-direction: column;
+    height: 128px;
+  }
+
+  .search-form__input {
+    height: 56px;
+    width: 288px;
+    padding: 0 16px;
+  }
+
+  .search-form__button {
+    width: 288px;
+    margin-top: 66px;
+    height: 56px;
   }
 }
