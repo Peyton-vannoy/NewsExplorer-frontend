@@ -58,10 +58,6 @@
     gap: 20px;
   }
 
-  .footer__link {
-    order: 1;
-  }
-
   .footer__copyright {
     order: 2;
   }

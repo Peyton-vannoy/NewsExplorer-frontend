@@ -16,10 +16,11 @@ function SearchForm({ onSearch }) {
       <div className="search-form__input-container">
         <input
           className="search-form__input"
-          type="text"
+          type="search"
           placeholder="Enter topic"
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
+          required
         />
         <button className="search-form__button" type="submit">
           Search

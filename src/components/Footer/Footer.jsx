@@ -19,6 +19,7 @@ function Footer() {
           >
             TripleTen
           </a>
+
           <a href="https://github.com" target="_blank" className="footer__icon">
             <i className="fab fa-github"></i>
           </a>

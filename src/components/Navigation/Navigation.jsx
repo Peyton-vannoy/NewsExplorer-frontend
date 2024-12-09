@@ -54,7 +54,13 @@ function Navigation({ onSignInClick, onSignOutClick, isLoggedIn, isDark }) {
         )}
 
         <button className="navigation__hamburger" onClick={toggleMobileMenu}>
-          <img src={hamburgerIcon} alt="hamburger" />
+          <img
+            src={hamburgerIcon}
+            alt="hamburger"
+            className={`navigation__hamburger ${
+              isDark ? "navigation__hamburger-dark" : ""
+            }`}
+          />
         </button>
       </nav>
 
@@ -71,12 +77,12 @@ function Navigation({ onSignInClick, onSignOutClick, isLoggedIn, isDark }) {
           </div>
           <div className="navigation__mobile-menu-container">
             <div className="navigation__mobile-menu-links">
-              <NavLink to="/" className={linkClass} end>
+              <NavLink to="/" className="navigation__mobile-link" end>
                 Home
               </NavLink>
               {isLoggedIn ? (
                 <>
-                  <NavLink to="/saved-news" className={linkClass}>
+                  <NavLink to="/saved-news" className="navigation__mobile-link">
                     Saved articles
                   </NavLink>
                 </>
