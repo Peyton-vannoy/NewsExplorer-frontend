@@ -65,7 +65,14 @@ function NewsCard({
 
   return (
     <li className="news__card" onClick={handleCardClick}>
-      <img className="news__card-image" src={urlToImage} alt={title} />
+      <img
+        className="news__card-image"
+        src={urlToImage}
+        alt={title}
+        loading="lazy"
+        width="400"
+        height="272"
+      />
       {isInSavedNews && <span className="news__card-keyword">{keyword}</span>}
       <div className="news__card-bookmark">
         {isInSavedNews ? (
