@@ -11,7 +11,7 @@
 }
 
 .hero-section {
-  background-image: url("../../assets/backgroundImage.png");
+  background-image: url("../../assets/backgroundImage.avif");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -24,7 +24,7 @@
 
 @media screen and (max-width: 818px) {
   .hero-section {
-    background-image: url("../../assets/backgroundImageTablet.png");
+    background-image: url("../../assets/backgroundImageTablet.avif");
     min-height: 400px;
   }
 
@@ -35,6 +35,6 @@
 
 @media screen and (max-width: 620px) {
   .hero-section {
-    background-image: url("../../assets/backgroundImageMobile.png");
+    background-image: url("../../assets/backgroundImageMobile.avif");
   }
 }

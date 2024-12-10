@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import logoutIcon from "../../assets/logoutIcon.svg";
-import hamburgerIcon from "../../assets/mobileMenuBtn.png";
+import hamburgerIcon from "../../assets/mobileMenuBtn.avif";
 import closeIcon from "../../assets/closeButton.svg";
 import logo from "../../assets/NewsExplorer.svg";
 import "./Navigation.css";

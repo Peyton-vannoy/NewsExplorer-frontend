@@ -1,7 +1,7 @@
 import React from "react";
-import bookmarkIcon from "../../assets/bookmarkIcon.png";
-import bookmarkIconHover from "../../assets/bookmarkIconHover.png";
-import bookmarkIconSaved from "../../assets/bookmarkIconSaved.png";
+import bookmarkIcon from "../../assets/bookmarkIcon.avif";
+import bookmarkIconHover from "../../assets/bookmarkIconHover.avif";
+import bookmarkIconSaved from "../../assets/bookmarkIconSaved.avif";
 import trashIcon from "../../assets/trash.svg";
 import trashIconActive from "../../assets/trashActive.svg";
 import "./NewsCard.css";
