@@ -18,11 +18,8 @@ function App() {
   // State management
   const [activeModal, setActiveModal] = useState("");
   const [savedArticles, setSavedArticles] = useState(() => {
-    if (localStorage.getItem("isLoggedIn") === "true") {
-      const articles = localStorage.getItem("savedArticles");
-      return articles ? JSON.parse(articles) : [];
-    }
-    return [];
+    const savedArticles = localStorage.getItem("savedArticles");
+    return savedArticles ? JSON.parse(savedArticles) : [];
   });
   const [searchState, setSearchState] = useState({
     isLoading: false,
@@ -30,7 +27,9 @@ function App() {
     results: [],
     keyword: "",
   });
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(() => {
+    return localStorage.getItem("isLoggedIn") === "true";
+  });
 
   // Article handlers
   const verifyArticleExists = async (article) => {
@@ -86,16 +85,11 @@ function App() {
   const handleSignOutClick = () => {
     localStorage.removeItem("isLoggedIn");
     setIsLoggedIn(false);
-    setSavedArticles([]);
   };
   const handleCloseModal = () => setActiveModal("");
 
   const handleLogin = () => {
     setIsLoggedIn(true);
-    const savedArticles = localStorage.getItem("savedArticles");
-    if (savedArticles) {
-      setSavedArticles(JSON.parse(savedArticles));
-    }
   };
 
   // Render helpers
@@ -123,7 +117,7 @@ function App() {
 
   useEffect(() => {
     localStorage.setItem("savedArticles", JSON.stringify(savedArticles));
-  }, [savedArticles, isLoggedIn]);
+  }, [savedArticles]);
 
   useEffect(() => {
     const checkSavedArticles = async () => {
