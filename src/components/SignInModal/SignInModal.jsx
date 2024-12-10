@@ -3,7 +3,7 @@ import { validateEmail, validatePassword } from "../../utils/formValidation";
 import "./SignInModal.css";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 
-function SignInModal({ isOpen, onClose, onSignUpClick }) {
+function SignInModal({ isOpen, onClose, onSignUpClick, onLogin }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [emailError, setEmailError] = useState("");
@@ -38,7 +38,11 @@ function SignInModal({ isOpen, onClose, onSignUpClick }) {
     if (!isFormValid) {
       return;
     }
-    console.log("Form submitted");
+
+    // Mock successful login
+    localStorage.setItem("isLoggedIn", true);
+    onLogin();
+    onClose();
   };
 
   const handleSignUpClick = () => {

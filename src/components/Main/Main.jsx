@@ -12,6 +12,13 @@ function Main({ onSearchResults }) {
     setIsLoading(true);
     setIsSearched(true);
 
+    // Date for today and one week ago
+    const today = new Date();
+    const lastWeek = new Date(today.getTime() - 7 * 24 * 60 * 60 * 1000);
+
+    const fromDate = lastWeek.toISOString().split("T")[0];
+    const toDate = today.toISOString().split("T")[0];
+
     onSearchResults({
       isLoading: true,
       isSearched: true,
@@ -21,7 +28,7 @@ function Main({ onSearchResults }) {
 
     try {
       const response = await fetch(
-        `${BASE_URL}/everything?q=${query}&apiKey=${API_KEY}`,
+        `${BASE_URL}/everything?q=${query}&from=${fromDate}&to=${toDate}&apiKey=${API_KEY}`,
         {
           method: "GET",
           headers: {
@@ -34,11 +41,21 @@ function Main({ onSearchResults }) {
       }
 
       const data = await response.json();
-      setSearchResults(data.articles);
+
+      // filter out invalid articles
+      const validArticles = data.articles.filter(
+        (article) =>
+          article.urlToImage &&
+          !article.urlToImage.includes("[Removed]") &&
+          article.title &&
+          !article.title.includes("[Removed]")
+      );
+
+      setSearchResults(validArticles);
       onSearchResults({
         isLoading: false,
         isSearched: true,
-        results: data.articles,
+        results: validArticles,
         keyword: query,
       });
     } catch (error) {

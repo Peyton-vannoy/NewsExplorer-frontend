@@ -32,6 +32,7 @@ function SearchResults({
           isLoggedIn={isLoggedIn}
           savedArticles={savedArticles}
           keyword={keyword}
+          url={searchResults.url}
         />
       )}
       {hasMoreResults && (
