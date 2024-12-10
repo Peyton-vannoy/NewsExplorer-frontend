@@ -34,7 +34,7 @@
   background-color: #e8e8e8;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1023px) {
   .search-results {
     padding: 40px 0;
   }

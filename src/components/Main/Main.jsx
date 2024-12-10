@@ -1,6 +1,7 @@
 import { useState } from "react";
 import SearchForm from "../SearchForm/SearchForm";
-import { API_KEY, BASE_URL } from "../../utils/newsExplorerApiKey";
+import { API_KEY } from "../../utils/newsExplorerApiKey";
+import { BASE_URL } from "../../utils/constants";
 import "./Main.css";
 
 function Main({ onSearchResults }) {
@@ -28,7 +29,7 @@ function Main({ onSearchResults }) {
 
     try {
       const response = await fetch(
-        `${BASE_URL}/everything?q=${query}&from=${fromDate}&to=${toDate}&apiKey=${API_KEY}`,
+        `${BASE_URL}/everything?q=${query}&from=${fromDate}&to=${toDate}&pageSize=100&apiKey=${API_KEY}`,
         {
           method: "GET",
           headers: {

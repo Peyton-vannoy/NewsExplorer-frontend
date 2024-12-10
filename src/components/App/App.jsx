@@ -18,8 +18,11 @@ function App() {
   // State management
   const [activeModal, setActiveModal] = useState("");
   const [savedArticles, setSavedArticles] = useState(() => {
-    const savedArticles = localStorage.getItem("savedArticles");
-    return savedArticles ? JSON.parse(savedArticles) : [];
+    if (localStorage.getItem("isLoggedIn") === "true") {
+      const articles = localStorage.getItem("savedArticles");
+      return articles ? JSON.parse(articles) : [];
+    }
+    return [];
   });
   const [searchState, setSearchState] = useState({
     isLoading: false,
@@ -34,23 +37,16 @@ function App() {
   // Article handlers
   const verifyArticleExists = async (article) => {
     try {
-      const response = await fetch(article.url);
-      if (!article.url || !response.ok) return false;
+      if (!article.urlToImage) return false;
 
-      if (article.urlToImage) {
-        const imageResponse = await fetch(article.urlToImage);
-        if (!imageResponse.ok) return false;
-
-        const contentType = imageResponse.headers.get("content-type");
-        if (!contentType || !contentType.startsWith("image/")) return false;
-      } else {
-        return false;
-      }
+      const imageResponse = await fetch(article.urlToImage, {
+        mode: "no-cors",
+      });
 
       return true;
     } catch (error) {
       console.error("Error verifying article existence:", error);
-      return false;
+      return true;
     }
   };
 
@@ -85,11 +81,17 @@ function App() {
   const handleSignOutClick = () => {
     localStorage.removeItem("isLoggedIn");
     setIsLoggedIn(false);
+    setSavedArticles([]);
   };
   const handleCloseModal = () => setActiveModal("");
 
   const handleLogin = () => {
+    localStorage.setItem("isLoggedIn", true);
     setIsLoggedIn(true);
+    const savedArticles = localStorage.getItem("savedArticles");
+    if (savedArticles) {
+      setSavedArticles(JSON.parse(savedArticles));
+    }
   };
 
   // Render helpers
@@ -116,8 +118,10 @@ function App() {
   };
 
   useEffect(() => {
-    localStorage.setItem("savedArticles", JSON.stringify(savedArticles));
-  }, [savedArticles]);
+    if (isLoggedIn) {
+      localStorage.setItem("savedArticles", JSON.stringify(savedArticles));
+    }
+  }, [savedArticles, isLoggedIn]);
 
   useEffect(() => {
     const checkSavedArticles = async () => {
