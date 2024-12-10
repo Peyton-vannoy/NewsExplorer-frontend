@@ -11,6 +11,7 @@ function NewsCardList({
   isInSavedNews,
   savedArticles = [],
   keyword,
+  url,
 }) {
   return (
     <section className="news__card-list">
@@ -29,7 +30,7 @@ function NewsCardList({
               isSaved={savedArticles.some(
                 (saved) => saved.title === article.title
               )}
-              url={article.url}
+              url={article.url || url}
             />
           ))}
       </ul>

@@ -25,6 +25,8 @@ function SavedNews({ onRemoveArticle, savedArticles }) {
           articles={savedArticles}
           onRemoveArticle={onRemoveArticle}
           isInSavedNews={true}
+          savedArticles={savedArticles}
+          url={savedArticles.url}
         />
       </section>
     </div>

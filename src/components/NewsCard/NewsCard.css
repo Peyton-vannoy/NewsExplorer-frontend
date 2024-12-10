@@ -243,6 +243,11 @@
     right: 8px;
   }
 
+  .news__card-keyword {
+    top: 8px;
+    left: 8px;
+  }
+
   .news__card-context {
     padding: 16px 16px 0 15px;
   }

@@ -42,7 +42,10 @@ function App() {
     setSavedArticles(
       isAlreadySaved
         ? savedArticles.filter((saved) => saved.title !== article.title)
-        : [...savedArticles, { ...article, keyword: searchState.keyword }]
+        : [
+            ...savedArticles,
+            { ...article, keyword: searchState.keyword, url: article.url },
+          ]
     );
   };
 

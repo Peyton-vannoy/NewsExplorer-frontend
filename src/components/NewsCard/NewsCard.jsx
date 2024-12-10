@@ -46,6 +46,7 @@ function NewsCard({
       source,
       urlToImage,
       keyword,
+      url,
     });
   };
 
@@ -58,6 +59,7 @@ function NewsCard({
       source,
       urlToImage,
       keyword,
+      url,
     });
   };
 
