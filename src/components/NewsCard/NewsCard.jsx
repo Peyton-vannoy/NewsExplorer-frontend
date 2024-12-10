@@ -19,6 +19,7 @@ function NewsCard({
   isLoggedIn,
   isInSavedNews,
   isSaved,
+  url,
 }) {
   const formatDate = (dateString) => {
     return new Date(dateString).toLocaleDateString("en-US", {
@@ -28,7 +29,12 @@ function NewsCard({
     });
   };
 
-  const handleBookmarkClick = () => {
+  const handleCardClick = () => {
+    window.open(url, "_blank");
+  };
+
+  const handleBookmarkClick = (e) => {
+    e.stopPropagation();
     if (!isLoggedIn) {
       onSignInClick();
       return;
@@ -43,7 +49,8 @@ function NewsCard({
     });
   };
 
-  const handleDeleteClick = () => {
+  const handleDeleteClick = (e) => {
+    e.stopPropagation();
     onRemoveArticle({
       title,
       description,
@@ -55,7 +62,7 @@ function NewsCard({
   };
 
   return (
-    <li className="news__card">
+    <li className="news__card" onClick={handleCardClick}>
       <img className="news__card-image" src={urlToImage} alt={title} />
       {isInSavedNews && <span className="news__card-keyword">{keyword}</span>}
       <div className="news__card-bookmark">
@@ -81,7 +88,13 @@ function NewsCard({
         ) : (
           <>
             {!isLoggedIn && (
-              <div className="news__card-tooltip" onClick={onSignInClick}>
+              <div
+                className="news__card-tooltip"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  onSignInClick();
+                }}
+              >
                 <p className="news__card-tooltip-text">
                   Sign in to save articles
                 </p>

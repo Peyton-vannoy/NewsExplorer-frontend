@@ -116,6 +116,13 @@
 
 .news__card-title {
   font-family: "Roboto Slab", serif;
+  max-height: 72px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
   font-size: 26px;
   line-height: 30px;
   margin: 0 0 16px;
@@ -131,8 +138,8 @@
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
-  -webkit-line-clamp: 5;
-  line-clamp: 5;
+  -webkit-line-clamp: 4;
+  line-clamp: 4;
   -webkit-box-orient: vertical;
 }
 
@@ -277,6 +284,8 @@
 
   .news__card-image {
     height: 196px;
+    object-fit: cover;
+    width: 100%;
   }
 
   .news__card-bookmark {
@@ -296,11 +305,11 @@
     font-size: 22px;
     line-height: 24px;
     margin-bottom: 10px;
-    width: 256px;
+    width: 100%;
   }
 
   .news__card-description {
-    width: 256px;
+    width: 100%;
     height: 88px;
     font-size: 16px;
     line-height: 22px;

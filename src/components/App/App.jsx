@@ -1,6 +1,6 @@
 import "./App.css";
 import { Routes, Route } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 // Component imports
 import Header from "../Header/Header";
@@ -17,7 +17,10 @@ import About from "../About/About";
 function App() {
   // State management
   const [activeModal, setActiveModal] = useState("");
-  const [savedArticles, setSavedArticles] = useState([]);
+  const [savedArticles, setSavedArticles] = useState(() => {
+    const savedArticles = localStorage.getItem("savedArticles");
+    return savedArticles ? JSON.parse(savedArticles) : [];
+  });
   const [searchState, setSearchState] = useState({
     isLoading: false,
     isSearched: false,
@@ -77,6 +80,10 @@ function App() {
     }
     return null;
   };
+
+  useEffect(() => {
+    localStorage.setItem("savedArticles", JSON.stringify(savedArticles));
+  }, [savedArticles]);
 
   return (
     <div className="page">

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import SearchForm from "../SearchForm/SearchForm";
-import API_KEY from "../../utils/newsExplorerApiKey";
+import { API_KEY, BASE_URL } from "../../utils/newsExplorerApiKey";
 import "./Main.css";
 
 function Main({ onSearchResults }) {
@@ -21,7 +21,13 @@ function Main({ onSearchResults }) {
 
     try {
       const response = await fetch(
-        `https://newsapi.org/v2/everything?q=${query}&apiKey=${API_KEY}`
+        `${BASE_URL}/everything?q=${query}&apiKey=${API_KEY}`,
+        {
+          method: "GET",
+          headers: {
+            "X-Api-Key": API_KEY,
+          },
+        }
       );
       if (!response.ok) {
         throw new Error("Failed to fetch news");

@@ -28,3 +28,9 @@
     gap: 10px;
   }
 }
+
+@media (max-width: 375px) {
+  .news__card-list {
+    padding: 24px 16px;
+  }
+}

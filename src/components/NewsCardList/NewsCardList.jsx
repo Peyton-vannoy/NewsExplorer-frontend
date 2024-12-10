@@ -29,6 +29,7 @@ function NewsCardList({
               isSaved={savedArticles.some(
                 (saved) => saved.title === article.title
               )}
+              url={article.url}
             />
           ))}
       </ul>

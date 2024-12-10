@@ -2,7 +2,9 @@ import "./SavedNews.css";
 import NewsCardList from "../NewsCardList/NewsCardList";
 
 function SavedNews({ onRemoveArticle, savedArticles }) {
-  const keywords = savedArticles.map((article) => article.keyword);
+  const keywords = [
+    ...new Set(savedArticles.map((article) => article.keyword)),
+  ];
 
   return (
     <div className="saved__news">
