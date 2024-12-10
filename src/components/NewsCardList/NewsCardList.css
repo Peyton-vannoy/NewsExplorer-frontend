@@ -22,3 +22,9 @@
     gap: 8px;
   }
 }
+
+@media (max-width: 540px) {
+  .news__card-list-container {
+    gap: 10px;
+  }
+}

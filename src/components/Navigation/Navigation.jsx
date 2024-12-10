@@ -92,13 +92,24 @@ function Navigation({ onSignInClick, onSignOutClick, isLoggedIn, isDark }) {
                 </button>
               )}
               <button
-                className="navigation__mobile-button"
+                className="navigation__mobile-button navigation__mobile-button-logout"
                 onClick={() => {
                   isLoggedIn ? onSignOutClick() : onSignInClick();
                   toggleMobileMenu();
                 }}
               >
-                {isLoggedIn ? "Peyton" : "Sign in"}
+                {isLoggedIn ? (
+                  <>
+                    Peyton
+                    <img
+                      src={logoutIcon}
+                      alt="Logout Button"
+                      className="navigation__mobile-logout-icon"
+                    />
+                  </>
+                ) : (
+                  "Sign in"
+                )}
               </button>
             </div>
           </div>

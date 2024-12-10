@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./SearchForm.css";
 
-function SearchForm({ onSearch }) {
+function SearchForm({ onSearch, keyword }) {
   const [searchQuery, setSearchQuery] = useState("");
 
   const handleSubmit = (e) => {
@@ -19,6 +19,7 @@ function SearchForm({ onSearch }) {
           type="search"
           placeholder="Enter topic"
           value={searchQuery}
+          defaultValue={keyword}
           onChange={(e) => setSearchQuery(e.target.value)}
           required
         />

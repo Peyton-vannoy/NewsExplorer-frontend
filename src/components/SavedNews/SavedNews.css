@@ -40,3 +40,29 @@
 .saved__news .news__card-list {
   padding: 62px 106px 62px 102px;
 }
+
+@media (max-width: 818px) {
+  .saved__news-header {
+    padding: 24px 40px;
+  }
+
+  .saved__news .news__card-list {
+    padding: 32px 40px;
+  }
+}
+
+@media (max-width: 620px) {
+  .saved__news-header {
+    padding: 24px 16px;
+  }
+
+  .saved__news .news__card-list {
+    padding: 24px 40px;
+  }
+}
+
+@media (max-width: 540px) {
+  .saved__news .news__card-list {
+    padding: 24px 16px;
+  }
+}

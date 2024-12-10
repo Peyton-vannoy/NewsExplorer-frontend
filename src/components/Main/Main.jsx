@@ -1,5 +1,6 @@
 import { useState } from "react";
 import SearchForm from "../SearchForm/SearchForm";
+import API_KEY from "../../utils/newsExplorerApiKey";
 import "./Main.css";
 
 function Main({ onSearchResults }) {
@@ -7,7 +8,7 @@ function Main({ onSearchResults }) {
   const [isLoading, setIsLoading] = useState(false);
   const [isSearched, setIsSearched] = useState(false);
 
-  const handleSearch = (query) => {
+  const handleSearch = async (query) => {
     setIsLoading(true);
     setIsSearched(true);
 
@@ -18,83 +19,27 @@ function Main({ onSearchResults }) {
       keyword: query,
     });
 
-    setTimeout(() => {
-      const mockResults = [
-        {
-          title: "Sample News",
-          description:
-            "This is a sample newsle This ia sample news article This is a sample news article This is a sample news article This is a sample news article This is a sample news article This is a sample e This is a sample e This is a sample news article This is a sample news article This is a sample news article  This is a sample news article This is a sample news article This is a sample news article This is a sample news article ",
-          publishedAt: new Date().toISOString(),
-          source: { name: "Sample Source" },
-          urlToImage:
-            "https://images.unsplash.com/photo-1731762512307-2271665eb149?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHw1fHx8ZW58MHx8fHx8",
-        },
-        {
-          title: "Sample",
-          description:
-            "We all know how good nature can make us feel. We have known it for millennia: the sound We all know how good nature can make us feel. We have known it for millennia: the soundWe all know how good nature can make us feel. We have known it for millennia: the sound...",
-          publishedAt: new Date().toISOString(),
-          source: { name: "Sample Source" },
-          urlToImage:
-            "https://images.unsplash.com/photo-1731329891228-c5009dc54fb6?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHw3fHx8ZW58MHx8fHx8",
-        },
-        {
-          title: " News",
-          description: "This is a sample news article",
-          publishedAt: new Date().toISOString(),
-          source: { name: "Sample Source" },
-          urlToImage:
-            "https://images.unsplash.com/photo-1731762512307-2271665eb149?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHw1fHx8ZW58MHx8fHx8",
-        },
-        {
-          title: "Article",
-          description: "This is a sample news article",
-          publishedAt: new Date().toISOString(),
-          source: { name: "Sample Source" },
-          urlToImage:
-            "https://images.unsplash.com/photo-1731762512307-2271665eb149?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHw1fHx8ZW58MHx8fHx8",
-        },
-        {
-          title: "blue",
-          description: "This is a sample news article",
-          publishedAt: new Date().toISOString(),
-          source: { name: "Sample Source" },
-          urlToImage:
-            "https://images.unsplash.com/photo-1731762512307-2271665eb149?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHw1fHx8ZW58MHx8fHx8",
-        },
-        {
-          title: "cloud",
-          description: "This is a sample news article",
-          publishedAt: new Date().toISOString(),
-          source: { name: "Sample Source" },
-          urlToImage:
-            "https://images.unsplash.com/photo-1731762512307-2271665eb149?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHw1fHx8ZW58MHx8fHx8",
-        },
-        {
-          title: "Book",
-          description: "This is a sample news article",
-          publishedAt: new Date().toISOString(),
-          source: { name: "Sample Source" },
-          urlToImage:
-            "https://images.unsplash.com/photo-1731762512307-2271665eb149?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHw1fHx8ZW58MHx8fHx8",
-        },
-        {
-          title: "Tree",
-          description: "This is a sample news article",
-          publishedAt: new Date().toISOString(),
-          source: { name: "Sample Source" },
-          urlToImage:
-            "https://images.unsplash.com/photo-1731762512307-2271665eb149?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHw1fHx8ZW58MHx8fHx8",
-        },
-      ];
-      setSearchResults(mockResults);
-      setIsLoading(false);
+    try {
+      const response = await fetch(
+        `https://newsapi.org/v2/everything?q=${query}&apiKey=${API_KEY}`
+      );
+      if (!response.ok) {
+        throw new Error("Failed to fetch news");
+      }
+
+      const data = await response.json();
+      setSearchResults(data.articles);
       onSearchResults({
         isLoading: false,
         isSearched: true,
-        results: mockResults,
+        results: data.articles,
+        keyword: query,
       });
-    }, 1000);
+    } catch (error) {
+      console.error("Error fetching news:", error);
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
