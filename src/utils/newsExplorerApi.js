@@ -38,7 +38,8 @@ export const fetchNews = async (query) => {
     console.error("Error fetching news:", error);
     return {
       ok: false,
-      error: error.message,
+      error:
+        "Sorry, something went wrong during the request. Please try again later.",
     };
   }
 };

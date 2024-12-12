@@ -64,6 +64,12 @@
   transition: opacity 0.3s ease;
 }
 
+@media screen and (max-width: 1224px) {
+  .footer__content {
+    padding: 0 40px;
+  }
+}
+
 @media screen and (max-width: 818px) {
   .footer__content {
     padding: 0 40px;
@@ -103,5 +109,12 @@
     order: 2;
     height: 22px;
     padding-bottom: 22px;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .footer__nav {
+    gap: 123px;
+    width: 100%;
   }
 }

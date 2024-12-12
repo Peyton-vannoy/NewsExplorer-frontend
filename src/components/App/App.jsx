@@ -103,6 +103,9 @@ function App() {
     if (searchState.isLoading) return <Preloader />;
 
     if (!searchState.isLoading && searchState.isSearched) {
+      if (searchState.error) {
+        return <NotFound message="error" />;
+      }
       return searchState.results.length === 0 ? (
         <NotFound />
       ) : (

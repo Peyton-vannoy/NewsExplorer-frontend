@@ -1,5 +1,7 @@
 import "./Footer.css";
 import { Link } from "react-router-dom";
+import githubIcon from "../../assets/githubIcon.svg";
+import facebookIcon from "../../assets/facebookIcon.svg";
 
 function Footer() {
   return (
@@ -32,7 +34,7 @@ function Footer() {
                 target="_blank"
                 className="footer__icon"
               >
-                <i className="fab fa-github"></i>
+                <img src={githubIcon} alt="GitHub" />
               </a>
             </li>
             <li>
@@ -41,7 +43,7 @@ function Footer() {
                 target="_blank"
                 className="footer__icon"
               >
-                <i className="fab fa-facebook"></i>
+                <img src={facebookIcon} alt="Facebook" />
               </a>
             </li>
           </ul>
