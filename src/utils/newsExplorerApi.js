@@ -12,7 +12,7 @@ export const fetchNews = async (query) => {
 
   try {
     const response = await fetch(
-      `${BASE_URL}/everything?q=${query}&from=${fromDate}&to=${toDate}&pageSize=100`,
+      `${BASE_URL}?q=${query}&from=${fromDate}&to=${toDate}&pageSize=100`,
       {
         method: "GET",
         headers: {
