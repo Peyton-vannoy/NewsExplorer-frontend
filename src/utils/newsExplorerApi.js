@@ -12,13 +12,7 @@ export const fetchNews = async (query) => {
 
   try {
     const response = await fetch(
-      `${BASE_URL}?q=${query}&from=${fromDate}&to=${toDate}&pageSize=100`,
-      {
-        method: "GET",
-        headers: {
-          "X-Api-Key": API_KEY,
-        },
-      }
+      `${BASE_URL}?q=${query}&from=${fromDate}&to=${toDate}&pageSize=100${API_KEY}`
     );
 
     if (!response.ok) {
