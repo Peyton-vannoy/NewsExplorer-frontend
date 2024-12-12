@@ -1,5 +1,7 @@
 # NewsExplorer Frontend
 
+[Live Demo](https://peytonvannoy-newsexplorer.netlify.app)
+
 ## Overview
 
 A web application that allows users to search and explore news articles from various sources. This is my final project for the TripleTen coding bootcamp.
