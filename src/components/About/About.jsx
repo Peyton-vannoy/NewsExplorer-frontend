@@ -1,4 +1,4 @@
-import authorImage from "../../assets/authorPicture.avif";
+import authorImage from "../../assets/profilePicture.avif";
 import "./About.css";
 
 function About() {

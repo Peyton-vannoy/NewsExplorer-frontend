@@ -1,0 +1,34 @@
+.modal__signup-container {
+  position: relative;
+  background-color: #fff;
+  border-radius: 20px;
+  padding: 43px 79px 51px 36px;
+  max-width: 430px;
+  box-sizing: border-box;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.modal__signup-title {
+  font-family: "Roboto", sans-serif;
+  font-size: 24px;
+  font-weight: 900;
+  line-height: 30px;
+  width: 315px;
+  height: 56px;
+  margin: 0;
+}
+
+.modal__signup_button {
+  text-align: left;
+  width: 228px;
+  height: 18px;
+  margin: 14px 0 0;
+}
+
+.modal__signup_button-text {
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+  line-height: 21.78px;
+  color: #2f71e5;
+}

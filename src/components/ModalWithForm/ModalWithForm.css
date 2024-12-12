@@ -33,6 +33,7 @@
 .modal__title {
   font-family: "Roboto", Arial, sans-serif;
   margin: 0 0 22px;
+  height: 32px;
 }
 
 .modal__close {

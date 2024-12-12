@@ -20,11 +20,15 @@ function Footer() {
             TripleTen
           </a>
 
-          <a href="https://github.com" target="_blank" className="footer__icon">
+          <a
+            href="https://github.com/Peyton-vannoy"
+            target="_blank"
+            className="footer__icon"
+          >
             <i className="fab fa-github"></i>
           </a>
           <a
-            href="https://facebook.com"
+            href="https://www.facebook.com/peyton.vannoy19"
             target="_blank"
             className="footer__icon"
           >

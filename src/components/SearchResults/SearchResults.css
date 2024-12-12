@@ -45,3 +45,15 @@
     padding-left: 40px;
   }
 }
+
+@media screen and (max-width: 818px) {
+  .search-results__button {
+    height: 56px;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .search-results__title {
+    padding-left: 16px;
+  }
+}

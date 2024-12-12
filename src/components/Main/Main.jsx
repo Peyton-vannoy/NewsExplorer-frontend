@@ -1,7 +1,6 @@
 import { useState } from "react";
 import SearchForm from "../SearchForm/SearchForm";
-import { API_KEY } from "../../utils/newsExplorerApiKey";
-import { BASE_URL } from "../../utils/constants";
+import { fetchNews } from "../../utils/newsExplorerApi";
 import "./Main.css";
 
 function Main({ onSearchResults }) {
@@ -13,57 +12,35 @@ function Main({ onSearchResults }) {
     setIsLoading(true);
     setIsSearched(true);
 
-    // Date for today and one week ago
-    const today = new Date();
-    const lastWeek = new Date(today.getTime() - 7 * 24 * 60 * 60 * 1000);
-
-    const fromDate = lastWeek.toISOString().split("T")[0];
-    const toDate = today.toISOString().split("T")[0];
-
     onSearchResults({
       isLoading: true,
       isSearched: true,
       results: [],
       keyword: query,
+      error: null,
     });
 
-    try {
-      const response = await fetch(
-        `${BASE_URL}/everything?q=${query}&from=${fromDate}&to=${toDate}&pageSize=100&apiKey=${API_KEY}`,
-        {
-          method: "GET",
-          headers: {
-            "X-Api-Key": API_KEY,
-          },
-        }
-      );
-      if (!response.ok) {
-        throw new Error("Failed to fetch news");
-      }
+    const result = await fetchNews(query);
 
-      const data = await response.json();
-
-      // filter out invalid articles
-      const validArticles = data.articles.filter(
-        (article) =>
-          article.urlToImage &&
-          !article.urlToImage.includes("[Removed]") &&
-          article.title &&
-          !article.title.includes("[Removed]")
-      );
-
-      setSearchResults(validArticles);
+    if (result.ok) {
       onSearchResults({
         isLoading: false,
         isSearched: true,
-        results: validArticles,
+        results: result.data,
         keyword: query,
+        error: null,
       });
-    } catch (error) {
-      console.error("Error fetching news:", error);
-    } finally {
-      setIsLoading(false);
+    } else {
+      onSearchResults({
+        isLoading: false,
+        isSearched: true,
+        results: [],
+        keyword: query,
+        error: result.error,
+      });
     }
+
+    setIsLoading(false);
   };
 
   return (

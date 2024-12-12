@@ -82,9 +82,12 @@ function SignInModal({ isOpen, onClose, onSignUpClick, onLogin }) {
       additionalContent={additionalContent}
       isFormValid={isFormValid}
     >
-      <label className="modal__label modal__label-email">Email</label>
+      <label htmlFor="signInEmail" className="modal__label modal__label-email">
+        Email
+      </label>
       <div className="modal__input-container">
         <input
+          id="signInEmail"
           className="modal__input modal__input-email"
           type="email"
           name="email"
@@ -98,9 +101,15 @@ function SignInModal({ isOpen, onClose, onSignUpClick, onLogin }) {
         </p>
       </div>
 
-      <label className="modal__label modal__label-password">Password</label>
+      <label
+        htmlFor="signInPassword"
+        className="modal__label modal__label-password"
+      >
+        Password
+      </label>
       <div className="modal__input-container">
         <input
+          id="signInPassword"
           className="modal__input modal__input-password"
           type="password"
           name="password"

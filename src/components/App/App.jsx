@@ -1,5 +1,5 @@
 import "./App.css";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 
 // Component imports
@@ -33,6 +33,8 @@ function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(() => {
     return localStorage.getItem("isLoggedIn") === "true";
   });
+
+  const navigate = useNavigate();
 
   // Article handlers
   const verifyArticleExists = async (article) => {
@@ -82,12 +84,14 @@ function App() {
     localStorage.removeItem("isLoggedIn");
     setIsLoggedIn(false);
     setSavedArticles([]);
+    navigate("/");
   };
   const handleCloseModal = () => setActiveModal("");
 
   const handleLogin = () => {
     localStorage.setItem("isLoggedIn", true);
     setIsLoggedIn(true);
+    navigate("/saved-news");
     const savedArticles = localStorage.getItem("savedArticles");
     if (savedArticles) {
       setSavedArticles(JSON.parse(savedArticles));
