@@ -72,6 +72,8 @@ function NewsCard({
         loading="lazy"
         width="400"
         height="272"
+        decoding="async"
+        fetchpriority="low"
       />
       {isInSavedNews && <span className="news__card-keyword">{keyword}</span>}
       <div className="news__card-bookmark">
