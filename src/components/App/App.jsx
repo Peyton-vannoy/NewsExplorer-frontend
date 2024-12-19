@@ -151,7 +151,7 @@ function App() {
       }
     };
     checkSavedArticles();
-  }, []);
+  }, [savedArticles]);
 
   return (
     <div className="page">

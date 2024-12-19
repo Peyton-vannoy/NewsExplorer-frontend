@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { validateEmail, validatePassword } from "../../utils/formValidation";
 import "./SignInModal.css";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
@@ -9,15 +9,16 @@ function SignInModal({ isOpen, onClose, onSignUpClick, onLogin }) {
   const [emailError, setEmailError] = useState("");
   const [passwordError, setPasswordError] = useState("");
   const [isFormValid, setIsFormValid] = useState(false);
+  const [formError, setFormError] = useState("");
 
-  const checkFormValidity = () => {
+  const checkFormValidity = useCallback(() => {
     const isValid =
       email.trim() !== "" &&
       password.trim() !== "" &&
       !emailError &&
       !passwordError;
     setIsFormValid(isValid);
-  };
+  }, [email, password, emailError, passwordError]);
 
   const handleEmailChange = (e) => {
     const value = e.target.value;
@@ -52,7 +53,8 @@ function SignInModal({ isOpen, onClose, onSignUpClick, onLogin }) {
 
   useEffect(() => {
     checkFormValidity();
-  }, [email, password]);
+    setFormError("");
+  }, [email, password, checkFormValidity]);
 
   useEffect(() => {
     if (!isOpen) {

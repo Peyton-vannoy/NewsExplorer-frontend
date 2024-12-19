@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import "./ModalWithForm.css";
 import closeIcon from "../../assets/closeButton.svg";
 

@@ -1,4 +1,3 @@
-import React from "react";
 import notFoundImage from "../../assets/not-found.svg";
 import "./NotFound.css";
 

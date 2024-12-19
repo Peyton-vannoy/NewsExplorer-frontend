@@ -10,7 +10,6 @@ function SearchResults({
   isLoggedIn,
   savedArticles = [],
   keyword,
-  onSearch,
 }) {
   const [visibleArticles, setVisibleArticles] = useState(3);
 

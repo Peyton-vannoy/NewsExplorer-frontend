@@ -37,9 +37,9 @@
   font-weight: 700;
 }
 
-.saved__news .news__card-list {
+/* .saved__news .news__card-list {
   padding: 62px 106px 62px 102px;
-}
+} */
 
 @media (max-width: 818px) {
   .saved__news-header {

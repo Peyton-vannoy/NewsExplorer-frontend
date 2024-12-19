@@ -1,4 +1,3 @@
-import React from "react";
 import bookmarkIcon from "../../assets/bookmarkIcon.svg";
 import bookmarkIconHover from "../../assets/bookmarkIconHover.svg";
 import bookmarkIconSaved from "../../assets/bookmarkIconSaved.svg";
@@ -73,7 +72,6 @@ function NewsCard({
         width="400"
         height="272"
         decoding="async"
-        fetchpriority="low"
       />
       {isInSavedNews && <span className="news__card-keyword">{keyword}</span>}
       <div className="news__card-bookmark">
