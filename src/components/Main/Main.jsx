@@ -12,32 +12,41 @@ function Main({ onSearchResults }) {
     setIsLoading(true);
     setIsSearched(true);
 
-    onSearchResults({
+    const searchState = {
       isLoading: true,
       isSearched: true,
       results: [],
       keyword: query,
       error: null,
-    });
+    };
+
+    onSearchResults(searchState);
+    localStorage.setItem("searchState", JSON.stringify(searchState));
 
     const result = await fetchNews(query);
 
     if (result.ok) {
-      onSearchResults({
+      const newSearchState = {
         isLoading: false,
         isSearched: true,
         results: result.data,
         keyword: query,
         error: null,
-      });
+      };
+
+      onSearchResults(newSearchState);
+      localStorage.setItem("searchState", JSON.stringify(newSearchState));
     } else {
-      onSearchResults({
+      const errorSearchState = {
         isLoading: false,
         isSearched: true,
         results: [],
         keyword: query,
         error: result.error,
-      });
+      };
+
+      onSearchResults(errorSearchState);
+      localStorage.setItem("searchState", JSON.stringify(errorSearchState));
     }
 
     setIsLoading(false);

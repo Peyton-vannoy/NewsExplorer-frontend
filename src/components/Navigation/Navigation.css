@@ -164,6 +164,8 @@
 }
 
 .navigation__mobile-link {
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
   color: #fff;
   text-decoration: none;
   font-size: 18px;
@@ -172,6 +174,8 @@
 }
 
 .navigation__mobile-button {
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
   display: flex;
   align-items: center;
   justify-content: center;

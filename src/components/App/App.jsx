@@ -24,11 +24,16 @@ function App() {
     }
     return [];
   });
-  const [searchState, setSearchState] = useState({
-    isLoading: false,
-    isSearched: false,
-    results: [],
-    keyword: "",
+  const [searchState, setSearchState] = useState(() => {
+    const savedSearch = localStorage.getItem("searchState");
+    return savedSearch
+      ? JSON.parse(savedSearch)
+      : {
+          isLoading: false,
+          isSearched: false,
+          results: [],
+          keyword: "",
+        };
   });
   const [isLoggedIn, setIsLoggedIn] = useState(() => {
     return localStorage.getItem("isLoggedIn") === "true";
@@ -54,6 +59,7 @@ function App() {
 
   const handleSearchResults = (articles) => {
     setSearchState(articles);
+    localStorage.setItem("searchState", JSON.stringify(articles));
   };
 
   const handleSavedArticles = (article) => {
@@ -82,6 +88,7 @@ function App() {
   const handleSignUpClick = () => setActiveModal("Sign Up");
   const handleSignOutClick = () => {
     localStorage.removeItem("isLoggedIn");
+    localStorage.removeItem("searchState");
     setIsLoggedIn(false);
     setSavedArticles([]);
     navigate("/");
