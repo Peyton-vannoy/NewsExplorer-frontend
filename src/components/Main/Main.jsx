@@ -4,7 +4,7 @@ import { fetchNews } from "../../utils/newsExplorerApi";
 import "./Main.css";
 
 function Main({ onSearchResults }) {
-  const [searchResults, setSearchResults] = useState([]);
+  // const [searchResults, setSearchResults] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [isSearched, setIsSearched] = useState(false);
 

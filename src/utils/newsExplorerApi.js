@@ -1,6 +1,7 @@
 import { BASE_URL } from "./constants";
+import { API_KEY } from "./constants";
 
-export const API_KEY = import.meta.env.VITE_NEWS_API_KEY;
+// export const API_KEY = import.meta.env.VITE_NEWS_API_KEY;
 
 export const fetchNews = async (query) => {
   // Date for today and one week ago
