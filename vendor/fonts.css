@@ -4,6 +4,7 @@
     url("./fonts/roboto-slab-400-regular.woff2") format("woff2");
   font-style: normal;
   font-display: swap;
+  font-weight: 400;
 }
 
 @font-face {
@@ -12,6 +13,7 @@
     url("./fonts/roboto-700.woff2") format("woff2");
   font-style: normal;
   font-display: swap;
+  font-weight: 700;
 }
 
 @font-face {
@@ -20,6 +22,7 @@
     url("./fonts/roboto-400-regular.woff2") format("woff2");
   font-style: normal;
   font-display: swap;
+  font-weight: 400;
 }
 
 @font-face {
@@ -28,6 +31,7 @@
     url("./fonts/roboto-500.woff2") format("woff2");
   font-style: normal;
   font-display: swap;
+  font-weight: 500;
 }
 
 @font-face {
@@ -36,4 +40,5 @@
     url(./fonts/inter-400-regular.woff2) format("woff2");
   font-style: normal;
   font-display: swap;
+  font-weight: 400;
 }
