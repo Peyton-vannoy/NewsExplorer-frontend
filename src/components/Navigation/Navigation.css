@@ -199,16 +199,6 @@
   cursor: pointer;
 }
 
-@media screen and (max-width: 620px) {
-  .navigation__hamburger {
-    display: flex;
-  }
-
-  .navigation__link {
-    display: none;
-  }
-}
-
 @media (max-width: 818px) {
   .navigation {
     padding-right: 40px;
@@ -219,6 +209,10 @@
     width: 64px;
     text-align: center;
     font-size: 16px;
+  }
+
+  .navigation__link::after {
+    left: -2px;
   }
 
   .navigation__link-saved {
