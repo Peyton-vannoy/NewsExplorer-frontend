@@ -287,12 +287,6 @@
   }
 }
 
-@media screen and (max-width: 818px) {
-  .news__card-tooltip {
-    width: 152px;
-  }
-}
-
 @media (max-width: 540px) {
   .news__card {
     width: 288px;
