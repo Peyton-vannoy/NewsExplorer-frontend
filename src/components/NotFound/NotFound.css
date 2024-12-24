@@ -1,0 +1,46 @@
+.not-found {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 86px 0 80px;
+  background-color: #f5f6f7;
+}
+
+.not-found__image {
+  width: 82.5px;
+  height: 82.5px;
+  margin-bottom: 31.5px;
+}
+
+.not-found__title {
+  font-family: "Roboto Slab", "Arial", sans-serif;
+  font-size: 26px;
+  line-height: 30px;
+  font-weight: 400;
+  color: #1a1b22;
+  margin: 0 0 16px;
+  width: 100%;
+  height: 30px;
+  text-align: center;
+}
+
+.not-found__text {
+  font-family: "Roboto", "Arial", sans-serif;
+  font-size: 18px;
+  line-height: 24px;
+  font-weight: 400;
+  color: #b6bcbf;
+  margin: 0 auto;
+  text-align: center;
+  width: 100%;
+  height: 48px;
+}
+
+@media screen and (max-width: 320px) {
+  .not-found {
+    padding: 86px 16px 80px;
+  }
+}

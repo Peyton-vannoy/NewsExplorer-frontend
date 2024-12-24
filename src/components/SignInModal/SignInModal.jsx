@@ -1,0 +1,130 @@
+import { useState, useEffect, useCallback } from "react";
+import { validateEmail, validatePassword } from "../../utils/formValidation";
+import "./SignInModal.css";
+import ModalWithForm from "../ModalWithForm/ModalWithForm";
+
+function SignInModal({ isOpen, onClose, onSignUpClick, onLogin }) {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [emailError, setEmailError] = useState("");
+  const [passwordError, setPasswordError] = useState("");
+  const [isFormValid, setIsFormValid] = useState(false);
+  const [formError, setFormError] = useState("");
+
+  const checkFormValidity = useCallback(() => {
+    const isValid =
+      email.trim() !== "" &&
+      password.trim() !== "" &&
+      !emailError &&
+      !passwordError;
+    setIsFormValid(isValid);
+  }, [email, password, emailError, passwordError]);
+
+  const handleEmailChange = (e) => {
+    const value = e.target.value;
+    setEmail(value);
+    setEmailError(validateEmail(value));
+    checkFormValidity();
+  };
+
+  const handlePasswordChange = (e) => {
+    const value = e.target.value;
+    setPassword(value);
+    setPasswordError(validatePassword(value));
+    checkFormValidity();
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (!isFormValid) {
+      return;
+    }
+
+    // Mock successful login
+    localStorage.setItem("isLoggedIn", true);
+    onLogin();
+    onClose();
+  };
+
+  const handleSignUpClick = () => {
+    onClose();
+    onSignUpClick();
+  };
+
+  useEffect(() => {
+    checkFormValidity();
+    setFormError("");
+  }, [email, password, checkFormValidity]);
+
+  useEffect(() => {
+    if (!isOpen) {
+      setEmail("");
+      setPassword("");
+      setEmailError("");
+      setPasswordError("");
+    }
+  }, [isOpen]);
+
+  const additionalContent = (
+    <p className="modal__signup-button">
+      or{" "}
+      <span className="modal__signup-button-text" onClick={handleSignUpClick}>
+        Sign up
+      </span>
+    </p>
+  );
+
+  return (
+    <ModalWithForm
+      isOpen={isOpen}
+      title="Sign In"
+      buttonText="Sign in"
+      onSubmit={handleSubmit}
+      onClose={onClose}
+      additionalContent={additionalContent}
+      isFormValid={isFormValid}
+    >
+      <label htmlFor="signInEmail" className="modal__label modal__label-email">
+        Email
+      </label>
+      <div className="modal__input-container">
+        <input
+          id="signInEmail"
+          className="modal__input modal__input-email"
+          type="email"
+          name="email"
+          placeholder="Enter email"
+          value={email}
+          onChange={handleEmailChange}
+          required
+        />
+        <p className={`modal__error ${emailError ? "visible" : ""}`}>
+          {emailError}
+        </p>
+      </div>
+
+      <label
+        htmlFor="signInPassword"
+        className="modal__label modal__label-password"
+      >
+        Password
+      </label>
+      <div className="modal__input-container">
+        <input
+          id="signInPassword"
+          className="modal__input modal__input-password"
+          type="password"
+          name="password"
+          placeholder="Enter password"
+          value={password}
+          onChange={handlePasswordChange}
+          required
+          minLength={5}
+          maxLength={20}
+        />
+      </div>
+    </ModalWithForm>
+  );
+}
+
+export default SignInModal;

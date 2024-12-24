@@ -1,0 +1,41 @@
+.page {
+  background-color: #fff;
+  box-sizing: border-box;
+  min-height: 100vh;
+}
+
+.page-content {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.hero-section {
+  background-image: url("../../assets/backgroundImage.avif");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 576px;
+  will-change: transform;
+}
+
+.hero-content {
+  padding: 0 0 80px;
+}
+
+@media screen and (max-width: 818px) {
+  .hero-section {
+    background-image: url("../../assets/backgroundImageTablet.avif");
+    min-height: 400px;
+  }
+
+  .hero-content {
+    padding: 0 0 48px;
+  }
+}
+
+@media screen and (max-width: 620px) {
+  .hero-section {
+    background-image: url("../../assets/backgroundImageMobile.avif");
+  }
+}

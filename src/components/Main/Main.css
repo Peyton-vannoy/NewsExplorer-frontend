@@ -1,0 +1,64 @@
+.hero-content__wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hero-content__title {
+  font-family: "Roboto Slab", "Times New Roman", sans-serif;
+  font-size: 60px;
+  font-weight: 400;
+  line-height: 64px;
+  margin: 80px auto 32px;
+  color: #fff;
+  width: 608px;
+}
+
+.hero-content__subtitle {
+  font-family: "Roboto", Arial, sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 24px;
+  margin: 0 auto 88px;
+  color: #fff;
+  width: 608px;
+}
+
+.search-results {
+  background-color: #f5f6f7;
+  width: 100%;
+}
+
+@media screen and (max-width: 818px) {
+  .hero-content__title {
+    font-size: 36px;
+    line-height: 40px;
+    margin: 38px 220px 16px 163px;
+    width: 385px;
+  }
+
+  .hero-content__subtitle {
+    font-size: 18px;
+    line-height: 24px;
+    margin: 0 156px 48px 160px;
+    width: 452px;
+  }
+}
+
+@media (max-width: 620px) {
+  .hero-content__title {
+    margin: 30px auto 16px;
+    width: 100%;
+  }
+
+  .hero-content__subtitle {
+    margin: 0 auto 122px;
+    width: 100%;
+  }
+
+  .hero-content__wrapper {
+    max-width: 288px;
+    padding: 0 16px;
+    margin: 0 auto;
+  }
+}
